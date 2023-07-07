@@ -6,10 +6,10 @@
 <a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/DyLux Bot-black?style=for-the-badge&logo=whatsApp"></a>
 <p/>
 <p align="center">
-<a href="https://github.com/FG98F?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/FG98F?label=Followers&style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/dylux-fg?&style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/dylux-fg?style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/FG98F/dylux-fg?label=Watching&style=social"></a>
+<a href="https://github.com/Khalid-niccur?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/FG98F?label=Followers&style=social"></a>
+<a href="https://github.com/Khalid-niccur/DYLUX-BOT/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/DYLUX-BOT?&style=social"></a>
+<a href="https://github.com/Khalid-niccur/DYLUX-BOT/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/DYLUX-BOT?style=social"></a>
+<a href="https://github.com/Khalid-niccur/DYLUX-BOT/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/FG98F/DYLUX-BOT?label=Watching&style=social"></a>
 </p>
 
 
