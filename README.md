@@ -1,6 +1,6 @@
 
 <p align="center"> 
-<img src="https://gpvc.arturio.dev/FG98F" />
+<img src="https://telegra.ph/file/12e386ac6247868c95ae9.jpg" />
 <p/>
 <p align="center">
 <a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/DyLux Bot-black?style=for-the-badge&logo=whatsApp"></a>
@@ -14,18 +14,18 @@
 
 
 
-<h3 align="center">WHATSAPP BOT</h3>
+<h3 align="center">DYLUX WHATSAPP BOT</h3>
 
 ***
-### Información
-- Cambie número de dueño en [Config](https://github.com/FG98F/dylux-fg/blob/main/config.js#L6)
-- Puede cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/FG98F/dylux-fg/blob/main/package.json#L42)
+### **INFOMATION**
+- Change owner number in [Config](https://github.com/Khalid-niccur/DYLUX-BOT/blob/main/config.js#L6)
+- You can switch to the latest version of baileys by editing the package.json [this section](https://github.com/Khalid-niccur/DYLUX-BOT/blob/main/package.json#L42)
 
-### FREE APIKEY
+### **FREE APIKEY**
 -  [click aquí](https://api-fgmods.ddns.net)
 
-### Ejemplo 
-En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
+### **EXAMPLE**
+If in doubt, before installing dylux-bot, try the bot here
 
 [![WhatsApp](https://img.shields.io/badge/DyLux-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://instabio.cc/fg98ff) 
 
@@ -53,8 +53,8 @@ $ cd dylux-fg
 $ npm i 
 $ npm start
 ```
-2. Esperar a que se inicie el bot...
-3. Escanea el código QR desde el segundo dispositivo. (ir a whatsapp > Dispositivos Vinculados > Vincular un dispositivo)
+2.Wait for the bot to start...
+3. Scan the QR code from the second device. (go to whatsapp > Paired Devices > Pair a device)
 ---------
 
 
@@ -62,10 +62,10 @@ $ npm start
 
 <a href="https://dash.boxmineworld.com/register?ref=Mb0BN5ny"><img src="https://k.top4top.io/p_2413wh2bh0.jpg" width="450" height="230" alt="BoxMine"/></a>
 
-Instale el bot con un solo click! para que este activo 24/7
+Install the bot with a single click! so that it is active 24/7
 
 ---------
-* Create una cuenta  [`aquí`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
+* Create an account [`here`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
 * Tutorial [`Click Aquí`](https://youtu.be/xFqjKN1Qt80)
 
 * Dashboard [`Click aquí`](https://dash.boxmineworld.com)
