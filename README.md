@@ -22,7 +22,7 @@
 - You can switch to the latest version of baileys by editing the package.json [this section](https://github.com/Khalid-niccur/DYLUX-BOT/blob/main/package.json#L42)
 
 ### **FREE APIKEY**
--  [click aquí](https://api-fgmods.ddns.net)
+-  [click Here](https://api-fgmods.ddns.net)
 
 ### **EXAMPLE**
 If in doubt, before installing dylux-bot, try the bot here
@@ -65,10 +65,10 @@ $ npm start
 Install the bot with a single click! so that it is active 24/7
 
 ---------
-* Create an account [`here`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
-* Tutorial [`Click Aquí`](https://youtu.be/xFqjKN1Qt80)
+* Create an account [`Here`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
+* Tutorial [`Click Here`](https://youtu.be/xFqjKN1Qt80)
 
-* Dashboard [`Click aquí`](https://dash.boxmineworld.com)
-* Panel [`Click aquí`](https://panel.boxmineworld.com/)
+* Dashboard [`Click Here`](https://dash.boxmineworld.com)
+* Panel [`Click Here`](https://panel.boxmineworld.com/)
 
 ---------
