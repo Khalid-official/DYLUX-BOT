@@ -12,7 +12,7 @@ https://t.me/dextrousmodsKENYA
 https://www.instagram.com/khalid_niccur
 
 ▢ ❤TWITTER💚
-https://chat.whatsapp.com/F0JTTyZ3hsoL7OlU8TEpuH
+https://twitter.com/Khalid_niccur
 
 ◈ ━━━━━━━━━━━━━━━━━━━━ ◈
 
