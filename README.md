@@ -48,8 +48,8 @@ $ pkg install git -y
 $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
-$ git clone https://github.com/FG98F/dylux-fg
-$ cd dylux-fg
+$ git clone https://github.com/Khalid-niccur/DYLUX-BOT
+$ cd DYLUX-BOT
 $ npm i 
 $ npm start
 ```
@@ -57,6 +57,15 @@ $ npm start
 3. Scan the QR code from the second device. (go to whatsapp > Paired Devices > Pair a device)
 ---------
 
+#### DEPLOY TO Replit 
+
+1. If You don't have an account in Replit. Create a account.
+    <br>
+<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+
+2. Now Deploy
+    <br>
+<p align="center"><a href="https://github.com/Khalid-niccur/DYLUX-BOT"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
 ## BOXMINE
 
