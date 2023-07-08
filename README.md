@@ -31,7 +31,7 @@ If in doubt, before installing dylux-bot, try the bot here
 
 ***
 
-#### Deploy to Heroku
+#### **DEPLOY TO HEROKU**
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FG98F/dylux-fg)
 
 #### Heroku Buildpack
@@ -40,7 +40,19 @@ If in doubt, before installing dylux-bot, try the bot here
 | **FFMPEG** |[click](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
 | **IMAGEMAGICK** | [click](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
 
-### TERMUX
+
+#### **DEPLOY REPLIT** 
+
+1. *If You don't have an account in Replit. Create a account.*
+    <br>
+<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+
+2. *Now Deploy*
+    <br>
+<p align="center"><a href="https://github.com/Khalid-niccur/DYLUX-BOT"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+
+
+### **DEPLOY TERMUX**
 1. 
 ```sh
 $ pkg upgrade -y && pkg update -y
@@ -57,17 +69,7 @@ $ npm start
 3. Scan the QR code from the second device. (go to whatsapp > Paired Devices > Pair a device)
 ---------
 
-#### DEPLOY TO Replit 
-
-1. If You don't have an account in Replit. Create a account.
-    <br>
-<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
-
-2. Now Deploy
-    <br>
-<p align="center"><a href="https://github.com/Khalid-niccur/DYLUX-BOT"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
-
-## BOXMINE
+## **DEPLOY BOXMINE**
 
 <a href="https://dash.boxmineworld.com/register?ref=Mb0BN5ny"><img src="https://k.top4top.io/p_2413wh2bh0.jpg" width="450" height="230" alt="BoxMine"/></a>
 
