@@ -1,1 +1,104 @@
-const _0x606034=_0x1ce2;(function(_0x263e1e,_0x320eb3){const _0xbbab92=_0x1ce2,_0x149985=_0x263e1e();while(!![]){try{const _0x3c9bc9=parseInt(_0xbbab92(0x1d8))/0x1*(parseInt(_0xbbab92(0x1ea))/0x2)+parseInt(_0xbbab92(0x1d3))/0x3+parseInt(_0xbbab92(0x1ce))/0x4*(-parseInt(_0xbbab92(0x1de))/0x5)+-parseInt(_0xbbab92(0x1d1))/0x6+-parseInt(_0xbbab92(0x1e5))/0x7+-parseInt(_0xbbab92(0x1dc))/0x8*(parseInt(_0xbbab92(0x1d5))/0x9)+parseInt(_0xbbab92(0x1dd))/0xa*(parseInt(_0xbbab92(0x1e6))/0xb);if(_0x3c9bc9===_0x320eb3)break;else _0x149985['push'](_0x149985['shift']());}catch(_0x3ba25a){_0x149985['push'](_0x149985['shift']());}}}(_0x5f45,0xe9e9a));import{youtubedl,youtubedlv2}from'@bochilteam/scraper';function _0x5f45(){const _0x363a16=['sendMessage','Video\x20Not\x20Found,\x20Try\x20Another\x20Title','exp','\x20<query>','4601996yniljj','13356178gqGrXu','\x0a⊱─━━━━⊱༻●༺⊰━━━━─⊰','128kbps','downloader','4GVodzL','\x0a\x20\x20❒\x20Upload:\x20','getFile','\x0a\x20\x20❐\x20Duration:\x20','\x20naruto\x20blue\x20bird','download','videos','random','map','data','99448AJMfyO','chat','diamond','2532180Eghujo','\x0a\x20\x20❑\x20Views:\x20','4909551BhtJYC','\x0a\x20\x20❒\x20Link:\x20','503487NyJqji','help','tags','180805idLvNr','command','Downloading\x20audio\x20please\x20wait','audio/mp4','72GuzoiV','10yfcjSO','135zJPrRG','floor','✼\x20••๑⋯\x20❀\x20Y\x20O\x20U\x20T\x20U\x20B\x20E\x20❀\x20⋯⋅๑••\x20✼\x0a\x20\x20❏\x20Title:\x20'];_0x5f45=function(){return _0x363a16;};return _0x5f45();}import _0x4a086a from'yt-search';var handler=async(_0x54fc46,{conn:_0x41c5d1,command:_0x230146,text:_0x2e79b8,usedPrefix:_0x2fdb1a})=>{const _0x13efb0=_0x1ce2;if(!_0x2e79b8)throw'Use\x20example\x20'+_0x2fdb1a+_0x230146+_0x13efb0(0x1ee);await _0x54fc46['react'](rwait);let _0x1dfd6d=await _0x4a086a(_0x2e79b8),_0x4687f1=_0x1dfd6d[_0x13efb0(0x1ca)][Math[_0x13efb0(0x1df)](Math[_0x13efb0(0x1cb)]()*_0x1dfd6d['videos']['length'])];if(!_0x1dfd6d)throw _0x13efb0(0x1e2);let {title:_0x2396c7,thumbnail:_0x1000cf,timestamp:_0x1583b6,views:_0x47cc82,ago:_0x4b4c99,url:_0x5e501f}=_0x4687f1,_0x3a51e1=_0x13efb0(0x1da),_0x322acb=_0x13efb0(0x1e0)+_0x2396c7+_0x13efb0(0x1ed)+_0x1583b6+_0x13efb0(0x1d2)+_0x47cc82+_0x13efb0(0x1eb)+_0x4b4c99+_0x13efb0(0x1d4)+_0x5e501f+_0x13efb0(0x1e7);_0x41c5d1[_0x13efb0(0x1e1)](_0x54fc46[_0x13efb0(0x1cf)],{'image':{'url':_0x1000cf},'caption':_0x322acb,'footer':author},{'quoted':_0x54fc46});const _0x4b9c70=await youtubedlv2(_0x5e501f)['catch'](async _0xfde382=>await youtubedl(_0x5e501f)),_0x48aa25=await _0x4b9c70['audio'][_0x13efb0(0x1e8)][_0x13efb0(0x1c9)]();let _0x425a16={'audio':{'url':_0x48aa25},'mimetype':_0x13efb0(0x1db),'fileName':''+_0x2396c7,'contextInfo':{'externalAdReply':{'showAdAttribution':!![],'mediaType':0x2,'mediaUrl':_0x5e501f,'title':_0x2396c7,'body':_0x3a51e1,'sourceUrl':_0x5e501f,'thumbnail':await(await _0x41c5d1[_0x13efb0(0x1ec)](_0x1000cf))[_0x13efb0(0x1cd)]}}};return _0x41c5d1[_0x13efb0(0x1e1)](_0x54fc46['chat'],_0x425a16,{'quoted':_0x54fc46});};function _0x1ce2(_0x332e72,_0x2ebe5c){const _0x5f452c=_0x5f45();return _0x1ce2=function(_0x1ce279,_0x2de95c){_0x1ce279=_0x1ce279-0x1c9;let _0x33d3f1=_0x5f452c[_0x1ce279];return _0x33d3f1;},_0x1ce2(_0x332e72,_0x2ebe5c);}handler[_0x606034(0x1d6)]=['play'][_0x606034(0x1cc)](_0x19f5e4=>_0x19f5e4+_0x606034(0x1e4)),handler[_0x606034(0x1d7)]=[_0x606034(0x1e9)],handler[_0x606034(0x1d9)]=/^play$/i,handler[_0x606034(0x1e3)]=0x0,handler[_0x606034(0x1d0)]=![];export default handler;
+import fetch from "node-fetch"
+import yts from "yt-search"
+import ytdl from 'ytdl-core'
+import axios from 'axios'
+import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+let handler = async (m, { conn, command, args, text, usedPrefix }) => {
+if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗]🎶song name failed so please enter command plus song name/title of a song😜\ n\n*—◉ ✨example:*\n*${usedPrefix + command} Good Feeling - Flo Rida*`
+try {
+const yt_play = await search(args.join(" "))
+let additionalText = ''
+if (command === 'play') {
+additionalText = 'audio 🔊'
+} else if (command === 'play2') {
+additionalText = 'video 🎥'}
+let text1 = `*◉——⌈🔊 YOUTUBE PLAY 🔊⌋——◉*\n
+❏ 📌 *Title:* ${yt_play[0].title}
+❏ 📆 *Posted:* ${yt_play[0].ago}
+❏ ⌚ *Duration:* ${secondString(yt_play[0].duration.seconds)}
+❏ 👀 *Views:* ${`${MilesNumber(yt_play[0].views)}`}
+❏ 👤 *Author:* ${yt_play[0].author.name}
+❏ ⏯️ *Channel:* ${yt_play[0].author.url}
+❏ 🆔 *ID:* ${yt_play[0].videoId}
+❏ 🪬 *Type:* ${yt_play[0].type}
+❏ 🔗 *Link:* ${yt_play[0].url}\n
+❏ *_Sending ${additionalText}, please wait．．．_*`.trim()
+conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: text1 }, { quoted: m })
+if (command == 'play') {
+try {
+letq = '128kbps'
+let v = yt_play[0].url
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
+const dl_url = await yt.audio[q].download()
+const ttl = await yt.title
+const size = await yt.audio[q].fileSizeH
+await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
+} catch {
+try {
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`)
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'mistake'
+await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
+} catch {
+try {
+let searchh = await yts(yt_play[0].url)
+let __res = searchh.all.map(v => v).filter(v => v.type == "video")
+let info = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId)
+let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
+conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })
+} catch {
+await conn.reply(m.chat, '*[❗] ‼error it was not possible to download the audio🔴', m)}}}
+}
+if (command == 'play2') {
+try {
+letqu = '360'
+let q = qu + 'p'
+let v = yt_play[0].url
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
+const dl_url = await yt.video[q].download()
+const ttl = await yt.title
+const size = await yt.video[q].fileSizeH
+await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝚃𝙸𝚃𝚄𝙻𝙾: ${ttl}\n ▢ 𝙿𝙴𝚂𝙾 𝙳𝙴𝙻 𝚅𝙸𝙳𝙴𝙾: ${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+} catch {
+try {
+let mediaa = await ytMp4(yt_play[0].url)
+await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, thumbnail: mediaa.thumb, mimetype :'video/mp4' }, { quoted: m })
+} catch {
+try {
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`)
+let lolh = await lolhuman.json()
+let n = lolh.result.title || 'mistake'
+let n2 = lolh.result.link
+let n3 = lolh.result.size
+let n4 = lolh.result.thumbnail
+await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝚃𝙸𝚃𝚄𝙻𝙾: ${n}\n▢ 𝙿𝙴𝚂𝙾 𝙳𝙴𝙻 𝚅𝙸𝙳𝙴𝙾: ${n3}`, thumbnail: await fetch(n4) }, { quoted: m })
+} catch {
+await conn.reply(m.chat, '*[❗] 🔴error it was not possible to download the video 🔴𝙾*', m)}}}
+}} catch {
+throw "*[❗𝐈𝐍𝐅𝐎❗] 🔴error please try again🔴*"}
+}
+handler.help = ["play", "play2"].map((v) => v + " <search>")
+handler.tags = ["downloader"]
+handler.command = /^play2?$/i
+export default handler
+
+async function search(query, options = {}) {
+const search = await yts.search({ query, hl: "en", gl: "ES", ...options });
+return search.videos};
+
+function MilesNumber(number) {
+const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+const rep = "$1.";
+let arr = number.toString().split(".");
+arr[0] = arr[0].replace(exp, rep);
+return arr[1] ? arr.join(".") : arr[0]};
+
+function secondString(seconds) {
+seconds = Number(seconds);
+var d = Math.floor(seconds / (3600 * 24));
+var h = Math.floor((seconds % (3600 * 24)) / 3600);
+var m = Math.floor((seconds % 3600) / 60);
+var s = Math.floor(seconds % 60);
+var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+var mDisplay = m > 0 ? m + (m == 1 ? " minute,
