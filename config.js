@@ -2,11 +2,11 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
+global.nomorbot = '254776331490' //Nomor Bot
 global.owner = [
   ['254736958034', 'KHALID-TECHNOLOGIES', true],
-  ['923470027813'],
-  ['254736958034'] 
-] //Numeros de owner 
+  ['923470027813']
+] //Numeros
 
 global.mods = ['254736958034'] 
 global.prems = ['254736958034', '254736958034', '923470027813']
