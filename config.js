@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 
 global.owner = [
   ['254736958034', 'KHALID-TECHNOLOGIES', true],
-  ['923470027813'], 'xIKRATOSx', true],
+  ['923470027813'],
   ['254736958034'] 
 ] //Numeros de owner 
 
