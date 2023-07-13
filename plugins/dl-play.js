@@ -50,40 +50,12 @@ conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + 
 } catch {
 await conn.reply(m.chat, 'Error, We are trying hard to fix it\n\nFollow me on instagram:\n\tinstagram.com/itx_ahmad.ali', m)}}}
 }  
-if (command == 'play2') {
-try {
-let qu = '360'
-let q = qu + 'p'
-let v = yt_play[0].url
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ TITLE: ${ttl}\n▢ SIZE: ${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
-await conn.sendMessage(m.chat, { document: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ TITLE: ${ttl}\n▢ SIZE: ${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
-} catch {   
-try {  
-let mediaa = await ytMp4(yt_play[0].url)
-await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `Follow me on instagram:\n\tinstagram.com/itx_ahmad.ali`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
-await conn.sendMessage(m.chat, { document: { url: mediaa.result }, fileName: `error.mp4`, caption: `Follow me on instagram:\n\tinstagram.com/itx_ahmad.ali`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
-} catch {  
-try {
-let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`)    
-let lolh = await lolhuman.json()
-let n = lolh.result.title || 'error'
-let n2 = lolh.result.link
-let n3 = lolh.result.size
-let n4 = lolh.result.thumbnail
-await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `▢ TITLE: ${n}\n▢ SIZE: ${n3}`, thumbnail: await fetch(n4) }, { quoted: m })
-await conn.sendMessage(m.chat, { document: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `▢ TITLE: ${n}\n▢ SIZE: ${n3}`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch {
-await conn.reply(m.chat, 'Error, We are trying hard to fix it\n\nFollow me on instagram:\n\tinstagram.com/itx_ahmad.ali', m)}}}    
-}} catch {
 throw "Error, We are trying hard to fix it\n\nFollow me on instagram:\n\tinstagram.com/itx_ahmad.ali"}
 }
 handler.help = ["play", "play2"].map((v) => v + " < busqueda >")
 handler.tags = ["downloader"]
-handler.command = /^play2?$/i
+handler.command = /^play?$/i
 export default handler
 
 async function search(query, options = {}) {
