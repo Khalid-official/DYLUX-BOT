@@ -341,12 +341,12 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                    this.reply(m.chat, `✳️ Tus diamantes se agotaron\nuse el siguiente comando para comprar más diamantes \n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, m)
-                    continue // Limit habis
-                }
-                if (plugin.level > _user.level) {
-                    this.reply(m.chat, `✳️ nivel requerido ${plugin.level} para usar este comando. \nTu nivel ${_user.level}`, m)
-                    continue // If the level has not been reached
+                    this.reply(m.chat, `✳️ Your diamonds are depleted\nuse the following command to buy more diamonds \n*${usedPrefix}buy* <amount> \n*${usedPrefix}buyall*`, m)
+                     continue // Limit habit
+                 }
+                 if (plugin.level > _user.level) {
+                     this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level ${_user.level}`, m)
+                     continue // If the level has not been reached
                 }
                 let extra = {
                     match,
@@ -557,41 +557,41 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-≡ Borró un mensaje  
-┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-▢ *Nombre :* @${participant.split`@`[0]} 
+≡deleted a message
+┌─⊷ 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀
+▢ *Name :* @${participant.split`@`[0]}
 └─────────────
-Para desactivar esta función, escriba 
+To disable this feature, type
 */off antidelete*
 *.enable delete*
 `.trim(), msg, {
-            mentions: [participant]
-        })
-        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-    } catch (e) {
-        console.error(e)
-    }
+             mentions: [participant]
+         })
+         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+     } catch(e) {
+         console.error(e)
+     }
 }
 
 global.dfail = (type, m, conn) => {
-    let msg = {
-        rowner: '👑 Este comando solo puede ser utilizado por el *Creador del bot*',
-        owner: '🔱 Este comando solo puede ser utilizado por el *Dueño del Bot*',
-        mods: '🔰  Esta función es solo para *Para moderadores del Bot*',
-        premium: '💠 Este comando es solo para miembros *Premium*\n\nEscribe */premium* para más info',
-        group: '⚙️ ¡Este comando solo se puede usar en grupos!',
-        private: '📮 Este comando solo se puede usar en el chat *privado del Bot*',
-        admin: '🛡️ Este comando es solo para *Admins* del grupo',
-        botAdmin: '💥 ¡Para usar este comando debo ser *Administrador!*',
-        unreg: '📇 Regístrese para usar esta función  Escribiendo:\n\n*/reg nombre.edad*\n\n📌Ejemplo : */reg dylux.16*',
-        restrict: '🔐 Esta característica está *deshabilitada*'
-    }[type]
-    if (msg) return m.reply(msg)
+     let msg = {
+         owner: '👑 This command can only be used by the *Creator of the bot*',
+         owner: '🔱 This command can only be used by the *Bot Owner*',
+         mods: '🔰 This feature is only for *For Bot Moderators*',
+         premium: '💠 This command is only for *Premium* members\n\nType */premium* for more info',
+         group: '⚙️ This command can only be used in groups!',
+         private: '📮 This command can only be used in the chat *private of the Bot*',
+         admin: '🛡️ This command is only for *Admins* of the group',
+         botAdmin: '💥 To use this command I must be *Administrator!*',
+         unreg: '📇Register to use this feature by Typing:\n\n*/reg name.age*\n\n📌Example : */reg dylux.16*',
+         restrict: '🔐 This feature is *disabled*'
+     }[type]
+     if (msg) return m.reply(msg)
 }
 
 let file = global.__filename(import.meta.url, true)
-watchFile(file, async () => {
-    unwatchFile(file)
-    console.log(chalk.magenta("✅  Se actualizo 'handler.js'"))
-    if (global.reloadHandler) console.log(await global.reloadHandler())
-}) 
+watchFile(file, async() => {
+     unwatchFile(file)
+     console.log(chalk.magenta("✅ Updated 'handler.js'"))
+     if (global.reloadHandler) console.log(await global.reloadHandler())
+})
