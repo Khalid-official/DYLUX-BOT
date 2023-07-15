@@ -1,23 +1,22 @@
-import fetch from 'node-fetch';
 
-let handler = async (m, { text, usedPrefix, command }) => {
-  if (!text) throw `*Enter a request or an order to use ChatGpt*\n\n*Example*\n* ${usedPrefix + command} Latest Netflix series*\n* ${usedPrefix + command} write a JS code*`;
+import cheerio from 'cheerio'
+import gpt from 'api-dylux'
+let handler = async (m, { conn, text }) => {
+	
+if (!text) throw `✳️ Ingresa el texto`
+m.react('💬')
 
-  try {
-    const response = await fetch(`https://guru-scrapper.cyclic.app/api/chatgpt?query=${encodeURIComponent(text)}`);
-    const data = await response.json();
-    const { text: result } = data.data || {};
-    const model = data.data?.detail?.model;
-    const creator = data.creator || '';
-    const fullResult = `${result}\n\nModel: ${model}\nCreator: ${creator}`;
-    m.reply(fullResult.trim());
-  } catch (error) {
-    console.error('Error:', error); // Log the error
-    throw `*ERROR*`;
-  }
-};
+	try {
+        let syms = `Eres DyLux Bot, un gran modelo de lenguaje entrenado por OpenAI. Siga cuidadosamente las instrucciones del usuario. Responde usando Markdown.`
+        let res = await gpt.ChatGpt(text, syms)
+         await m.reply(res.text)
+	} catch {
+		m.reply(`❎ Error: intenta más tarde`)
+	}
 
-handler.command = ['bro', 'chatgpt', 'ai', 'siri'];
-handler.diamond = false;
+}
+handler.help = ['ia <text>']
+handler.tags = ['tools']
+handler.command = ['ia', 'ai', 'chatgpt', 'openai', 'gpt']
 
-export default handler;
+export default handler
