@@ -1,20 +1,16 @@
-const gives = [
-   'https://tinyurl.com/gdd01',
-   'https://tinyurl.com/gdd02',
-   'https://tinyurl.com/gdd003',
-   'https://tinyurl.com/gdd004',
-   'https://tinyurl.com/gdd05',
-   'https://tinyurl.com/gdd006'
+const dir = [
+  'https://tinyurl.com/dados01',
+  'https://tinyurl.com/dados02',
+  'https://tinyurl.com/dados03',
+  'https://tinyurl.com/dados04',
+  'https://tinyurl.com/dados05',
+  'https://tinyurl.com/dados06'
 ];
-let handler = async(m, { conn }) => {
-   conn.sendFile(m.chat, pickRandom(da), 'dado.webp', '', m)
+let handler = async (m, { conn }) => {
+  conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp', '', m)
 }
-handler.help = ['given']
+handler.help = ['dado']
 handler.tags = ['game']
-handler.command = ['dice', 'dice']
+handler.command = ['dado', 'dados'] 
 
 export default handler
-
-function pickRandom(list) {
-   return list[Math.floor(list.length * Math.random())]
-}
