@@ -2,8 +2,8 @@ import cheerio from 'cheerio'
 import gpt from 'api-dylux'
 let handler = async(m, { conn, text }) => {
 
-if (!text) throw `✳✨🎈Enter the text🎈✨`
-m.react('🪁)
+if (!text) throw `✳❤💚 Enter the text❤💙`
+m.react('💚')
 
 try {
          let syms = `You are DyLux Bot, a great language model trained by OpenAI. Carefully follow the user instructions. Respond using Markdown.`
