@@ -5,14 +5,14 @@ let handler = async (m, { conn, command, text, usedPrefix, participants }) => {
       "Sigma",
       "Generous",
       "Grumpy",
-      "Overconfident",
-      "Obedient",
+      "Hoe",
+      "Jealous",
       "Good",
       "Simp",
-      "Kind",
+      "Bully",
       "Patient",
       "Pervert",
-      "Cool",
+      "Gay",
       "Helpful",
       "Brilliant",
       "Sexy",
@@ -23,7 +23,7 @@ let handler = async (m, { conn, command, text, usedPrefix, participants }) => {
     const userCharacterSeletion =
       userChar[Math.floor(Math.random() * userChar.length)]
 
-    let message = `Character of @${mentionedUser.split("@")[0]}  is *${userCharacterSeletion}* 🔥⚡`
+    let message = `Character of @${mentionedUser.split("@")[0]}  is *${userCharacterSeletion}* 🔥💀☠`
     
     conn.sendMessage(m.chat, { text: message, mentions: [mentionedUser] }, { quoted: m })
     
