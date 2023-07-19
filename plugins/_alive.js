@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
-  let caption = '
+  let caption =  `
 ╭───[ *DyLux ┃ ᴮᴼᵀ* ]───╮
 │╭────────────────────
 ┴│👋 Hey there, ${conn.getName(m.sender)}!
