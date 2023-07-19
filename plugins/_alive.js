@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
 │╰────────────────────
 ┠───[ *BOT INFO* ]────╮
 │╭────────────────────
-┴│ *DyLux  ┃ ᴮᴼᵀ*
+┴│ *DyLux  ┃ ᴮᴼᵀ*to 
 ⬡│💻 A WhatsApp bot created by:
 ⬡│👨‍💻 Khalid_niccur
 ⬡│📞 For any inquiries, contact:
@@ -25,8 +25,8 @@ let handler = async (m, { conn }) => {
 │╰──────────────
 ╰────────═┅═───────
 *Thank you for choosing *DyLux ┃ ᴮᴼᵀ*! *
-.trim()
-conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/7d2018e682bb9c09439c4.jpg' }, caption: caption, footer: Follow me on instagram:\n\tinstagram.com/itx_ahmad.ali }, { quoted: m })
+`.trim()
+conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/7d2018e682bb9c09439c4.jpg' }, caption: caption, footer: `Follow me on instagram:\n\tinstagram.com/itx_ahmad.ali` }, { quoted: m })
   //m.reply(caption)
 }
 handler.help = ['alive']
