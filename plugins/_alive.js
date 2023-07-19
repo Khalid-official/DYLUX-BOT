@@ -1,6 +1,6 @@
-import fetch from 'node-fetch'
+$ import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
-  let caption =  `
+  let caption =  
 ╭───[*DyLux ┃ ᴮᴼᵀ*]───╮
 │╭────────────────────
 ┴│👋 Hey there, ${conn.getName(m.sender)}!
@@ -25,8 +25,9 @@ let handler = async (m, { conn }) => {
 │╰──────────────
 ╰────────═┅═───────
 *Thank you for choosing *DyLux ┃ ᴮᴼᵀ*! *
-`.trim()
-  m.reply(caption)
+.trim()
+conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/7d2018e682bb9c09439c4.jpg' }, caption: caption, footer: Follow me on instagram:\n\tinstagram.com/itx_ahmad.ali }, { quoted: m })
+  //m.reply(caption)
 }
 handler.help = ['alive']
 handler.tags = ['bot check']
