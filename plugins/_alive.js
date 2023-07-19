@@ -1,4 +1,4 @@
-$ import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
   let caption =  
 ╭───[*DyLux ┃ ᴮᴼᵀ*]───╮
