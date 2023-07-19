@@ -1,13 +1,12 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
-  let caption = `https://telegra.ph/file/7d2018e682bb9c09439c4.jpg
   let caption =  `
 ╭───[*DyLux ┃ ᴮᴼᵀ*]───╮
 │╭────────────────────
 ┴│👋 Hey there, ${conn.getName(m.sender)}!
 ⬡│🤖 I'm *DyLux  ┃ ᴮᴼᵀ*\n⬡│ I'm up and running! 🚀
 │╰────────────────────
-┠───[ BOT INFO ]────╮
+┠───[ *BOT INFO* ]────╮
 │╭────────────────────
 ┴│ *DyLux  ┃ ᴮᴼᵀ*
 ⬡│💻 A WhatsApp bot created by:
@@ -17,8 +16,8 @@ let handler = async (m, { conn }) => {
 ⬡│🙅‍♂️ Don't call the owner or you\'ll be
 ⬡│ ignored or blocked! 😬
 │╰────────────────────
-┠───[ HOW TO USE ]────⋆
-┴│💡 Some commands you can use:
+┠───[ *HOW TO USE* ]────⋆
+┴│💡 *Some commands you can use:*
 ⬡│🔸 .menu \n⬡│- Shows a list of available commands
 ⬡│🔸 .play \n⬡│- Plays a YouTube video or audio.
 ⬡│🔸 .sticker \n⬡│- Converts an image to a sticker
