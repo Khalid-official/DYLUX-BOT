@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
-  let caption = `
+  let caption = `https://telegra.ph/file/7d2018e682bb9c09439c4.jpg
 ╭───[*DyLux ┃ ᴮᴼᵀ*]───╮
 │╭────────────────────
 ┴│👋 Hey there, ${conn.getName(m.sender)}!
