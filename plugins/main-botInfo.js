@@ -43,8 +43,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   
 let infobt = `
 ≡ *BOT INFO*
-  
-*STATE*
+  *STATE*
 ▢ *${groupsIn.length}* Group Chats
 ▢ *${groupsIn.length}* United groups
 ▢ *${groupsIn.length - groupsIn.length}* Abandoned groups
@@ -58,16 +57,14 @@ let infobt = `
 ▢ WhatsApp :
    • (write only if necessary)
 ▢ GitHub :
-   • https://github.com/FG98F
+   • https://github.com/Khalid-niccur/DYLUX-BOT
 ▢ Telegram :
    • https://t.me/dextrousmodsKENYA
  
-  *≡ HELPERS*
-   *CRISS*
+  *≡ HELPERS* *CRISS*
 ▢ Instagram : https://www.instagram.com/khalid_niccur
-▢ WhatsApp : wa.me/
-   khalid
-▢ Instagram: https://
+▢ WhatsApp : wa.me/254114098508
+   khalid+TECHNOLOGY 
 ▢ WhatsApp : wa.me/254736958034
 
   *≡ S E R V E R*
