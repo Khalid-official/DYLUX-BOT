@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
 ┬│🔸 .Ai text \n⬡│- Artificial intelligence 
 │╰──────────────
 ╰────────═┅═───────
-*Thank you for choosing *DyLux ┃ ᴮᴼᵀ*! 🌟✨*
+*Thank you for choosing *DyLux ┃ ᴮᴼᵀ*! *
 `.trim()
   m.reply(caption)
 }
