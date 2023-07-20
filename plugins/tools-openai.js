@@ -6,7 +6,7 @@ if (!text) throw `✳❤💚 Enter the text❤💙`
 m.react('💚')
 
 try {
-         let syms = `You are DyLux Bot, a great language model trained by OpenAI. Carefully follow the user instructions. Respond using Markdown.`
+         let syms = `You are DyLux Bot created by Khalid a well trained developer and a programmer, a great language model trained by OpenAI. Carefully follow the user instructions. Respond using Markdown.`
          let res = await gpt.ChatGpt(text, syms)
           await m.reply(res.text)
 } catch {
