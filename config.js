@@ -33,7 +33,8 @@ global.fgsc = 'https://github.com/FG98F/dylux-fg'
 global.fgyt = 'https://youtube.com/fg98f'
 global.fgpyp = 'https://paypal.me/fg98f'
 global.fglog = 'https://i.imgur.com/Owmb93c.png' 
-
+global.htki = '––––––『' // Hiasan Titile (KIRI) 
+ global.htka = '』––––––' // Hiasan Title  (KANAN)
 global.wait = '💓𝗟𝗢𝗔𝗗𝗜𝗡𝗚 𝗢𝗨𝗧𝗣𝗨𝗧 𝗖𝗢𝗠𝗥𝗔𝗗𝗘⌛ \n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
 global.dmoji = '🤭'
