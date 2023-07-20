@@ -5,17 +5,20 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'main': 'ABOUT', 'game': 'GAMES', 'con': 'LEVEL and ECONOMY', 'rg': 'REGISTRATION',
+  'main': 'ACERCA DE',
+  'game': 'JUEGOS',
+  'econ': 'NIVEL & ECONOMIA',
+  'rg': 'REGISTRO',
   'sticker': 'STICKER',
-   'img': 'IMAGE',
-   'maker': 'MAKER',
-   'prem': 'PREMIUM',
-   'group': 'GROUP',
-   'nable': 'EN/DISABLE OPTIONS',
-   'anime': 'ANIME',
-   'rnime': 'ANIME REACTION',
-   'dl': 'DOWNLOADS',
-   'tools': 'TOOLS',
+  'img': 'IMAGEN',
+  'maker': 'MAKER',
+  'prem': 'PREMIUM',
+  'group': 'GRUPO',
+  'nable': 'EN/DISABLE OPCIONES', 
+  'nime': 'ANIME',
+  'rnime': 'ANIME REACCION',
+  'dl': 'DESCARGAS',
+  'tools': 'TOOLS',
   'fun': 'FUN',
   'cmd': 'DATABASE',
   'nsfw': 'NSFW +18', 
@@ -26,18 +29,22 @@ let tags = {
 const defaultMenu = {
   before: `
 ◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
- 👋🏻 _Hello_ *%name*
-🧿 Level : *%level*
-👥 Users : %totalreg
-📈 Active time : %muptime
+ 
+👋🏻 _Hola_ *%name*
+🧿 Nivel : *%level* 
+👥 Usuarios : %totalreg
+📈 Tiempo activo : %muptime
 ─────────────
-꧁🧚‍♀𝗛𝗲𝗹𝗹𝗼 𝗺𝘆 𝗵𝘂𝗺𝗯𝗹𝗲😊 𝘂𝘀𝗲𝗿, 𝗺𝘆 𝗻𝗮𝗺𝗲 𝗶𝘀 𝗗𝘆𝗹𝘂𝘅 𝗯𝗼𝘁 𝘀𝘆𝘀𝘁𝗲𝗺𝘀, 𝗮 𝘄𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 𝗰𝗿𝗲𝗮𝘁𝗲𝗱 𝗯𝘆 𝗞𝗛𝗔𝗟𝗜𝗗-𝗧𝗘𝗖𝗛𝗡𝗢𝗟𝗢𝗚𝗜𝗘𝗦🤩 Wa.me/254736958034 𝗸𝗶𝗻𝗱𝗹𝘆 𝗱𝗺 𝗵𝗶𝗺 𝗳𝗼𝗿 𝗮𝗻𝘆 𝗲𝗻𝗾𝘂𝗿𝗶𝗲𝘀 𝗼𝗿 𝗲𝗿𝗿𝗼𝗿𝘀 🧚‍♀꧂
+▢ Crea tu propio bot 
+• https://youtu.be/xFqjKN1Qt80
+▢ Descarga *FGWhatsApp*
+• https://fgmods.epizy.com
 ─────────────
 %readmore
 Ⓟ = Premium
-ⓓ = Diamonds
------ ----- ----- ----- -----
-   ≡ *MENU LIST*
+ⓓ = Diamantes
+-----  -----  -----  -----  -----
+  ≡ *LISTA DE MENUS*
 `.trimStart(),
   header: '┌─⊷ *%category*',
   body: '▢ %cmd %isdiamond %isPremium',
@@ -136,4 +143,44 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       maxexp: xp,
       totalexp: exp,
       xp4levelup: max - exp,
-      github: _package.homepage ? _pa
+      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
+      level, diamond, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      readmore: readMore
+    }
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    
+    let pp = './src/fg_logo.jpg'
+     
+    conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
+    /*conn.sendButton(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, [
+      ['ꨄ︎ Apoyar', `${_p}donate`],
+      ['⏍ Info', `${_p}botinfo`],
+      ['⌬ Grupos', `${_p}gpdylux`]
+    ],m, rpl)*/
+  
+    m.react('📚') 
+    
+  } catch (e) {
+    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error', m)
+    throw e
+  }
+}
+handler.help = ['help']
+handler.tags = ['main']
+handler.command = ['menu', 'help', 'menú'] 
+handler.register = false
+
+handler.exp = 3
+
+export default handler
+
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
+
+function clockString(ms) {
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [d, 'd ', h, 'h ', m, 'm '].map(v => v.toString().padStart(2, 0)).join('')
+}
