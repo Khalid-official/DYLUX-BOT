@@ -5,20 +5,17 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'main': 'ACERCA DE',
-  'game': 'JUEGOS',
-  'econ': 'NIVEL & ECONOMIA',
-  'rg': 'REGISTRO',
+  'main': 'ABOUT', 'game': 'GAMES', 'con': 'LEVEL and ECONOMY', 'rg': 'REGISTRATION',
   'sticker': 'STICKER',
-  'img': 'IMAGEN',
-  'maker': 'MAKER',
-  'prem': 'PREMIUM',
-  'group': 'GRUPO',
-  'nable': 'EN/DISABLE OPCIONES', 
-  'nime': 'ANIME',
-  'rnime': 'ANIME REACCION',
-  'dl': 'DESCARGAS',
-  'tools': 'TOOLS',
+   'img': 'IMAGE',
+   'maker': 'MAKER',
+   'prem': 'PREMIUM',
+   'group': 'GROUP',
+   'nable': 'EN/DISABLE OPTIONS',
+   'anime': 'ANIME',
+   'rnime': 'ANIME REACTION',
+   'dl': 'DOWNLOADS',
+   'tools': 'TOOLS',
   'fun': 'FUN',
   'cmd': 'DATABASE',
   'nsfw': 'NSFW +18', 
@@ -29,22 +26,18 @@ let tags = {
 const defaultMenu = {
   before: `
 ◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
- 
-👋🏻 _Hola_ *%name*
-🧿 Nivel : *%level* 
-👥 Usuarios : %totalreg
-📈 Tiempo activo : %muptime
+ 👋🏻 _Hello_ *%name*
+🧿 Level : *%level*
+👥 Users : %totalreg
+📈 Active time : %muptime
 ─────────────
-▢ Crea tu propio bot 
-• https://youtu.be/xFqjKN1Qt80
-▢ Descarga *FGWhatsApp*
-• https://fgmods.epizy.com
+꧁🧚‍♀𝗛𝗲𝗹𝗹𝗼 𝗺𝘆 𝗵𝘂𝗺𝗯𝗹𝗲😊 𝘂𝘀𝗲𝗿, 𝗺𝘆 𝗻𝗮𝗺𝗲 𝗶𝘀 𝗗𝘆𝗹𝘂𝘅 𝗯𝗼𝘁 𝘀𝘆𝘀𝘁𝗲𝗺𝘀, 𝗮 𝘄𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 𝗰𝗿𝗲𝗮𝘁𝗲𝗱 𝗯𝘆 𝗞𝗛𝗔𝗟𝗜𝗗-𝗧𝗘𝗖𝗛𝗡𝗢𝗟𝗢𝗚𝗜𝗘𝗦🤩 Wa.me/254736958034 𝗸𝗶𝗻𝗱𝗹𝘆 𝗱𝗺 𝗵𝗶𝗺 𝗳𝗼𝗿 𝗮𝗻𝘆 𝗲𝗻𝗾𝘂𝗿𝗶𝗲𝘀 𝗼𝗿 𝗲𝗿𝗿𝗼𝗿𝘀 🧚‍♀꧂
 ─────────────
 %readmore
 Ⓟ = Premium
-ⓓ = Diamantes
------  -----  -----  -----  -----
-  ≡ *LISTA DE MENUS*
+ⓓ = Diamonds
+----- ----- ----- ----- -----
+   ≡ *MENU LIST*
 `.trimStart(),
   header: '┌─⊷ *%category*',
   body: '▢ %cmd %isdiamond %isPremium',
@@ -158,10 +151,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       ['⌬ Grupos', `${_p}gpdylux`]
     ],m, rpl)*/
   
-    m.react('📚') 
+    m.react('❣') 
     
   } catch (e) {
-    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error', m)
+    conn.reply(m.chat, '❎Sorry, the menu has an error', m)
     throw e
   }
 }
