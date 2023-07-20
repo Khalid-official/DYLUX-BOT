@@ -27,9 +27,9 @@ const defaultMenu = {
   before: `
 ◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
  👋🏻 _Hello_ *%name*
-🚀 Level : *%level*
+🧿 Level : *%level*
 👥 Users : %totalreg
-⏳ Active time : %muptime
+📈 Active time : %muptime
 ─────────────
 ꧁🧚‍♀𝗛𝗲𝗹𝗹𝗼 𝗺𝘆 𝗵𝘂𝗺𝗯𝗹𝗲😊 𝘂𝘀𝗲𝗿, 𝗺𝘆 𝗻𝗮𝗺𝗲 𝗶𝘀 𝗗𝘆𝗹𝘂𝘅 𝗯𝗼𝘁 𝘀𝘆𝘀𝘁𝗲𝗺𝘀, 𝗮 𝘄𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 𝗰𝗿𝗲𝗮𝘁𝗲𝗱 𝗯𝘆 𝗞𝗛𝗔𝗟𝗜𝗗-𝗧𝗘𝗖𝗛𝗡𝗢𝗟𝗢𝗚𝗜𝗘𝗦🤩 Wa.me/254736958034 𝗸𝗶𝗻𝗱𝗹𝘆 𝗱𝗺 𝗵𝗶𝗺 𝗳𝗼𝗿 𝗮𝗻𝘆 𝗲𝗻𝗾𝘂𝗿𝗶𝗲𝘀 𝗼𝗿 𝗲𝗿𝗿𝗼𝗿𝘀 🧚‍♀꧂
 ─────────────
