@@ -34,7 +34,7 @@ global.fgyt = 'https://t.me/dextrousmodsKENYA'
 global.fgpyp = 'https://paypal.me/fg98f'
 global.fglog = 'https://i.imgur.com/Owmb93c.png' 
 
-global.wait = '💓PLEASE AWAIT 𝗖𝗢𝗠𝗥𝗔𝗗𝗘⌛ \n*▰▰▰▱▱▱▱▱*'
+global.wait = '💓*PLEASE AWAIT 𝗖𝗢𝗠𝗥𝗔𝗗𝗘*⌛ \n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
 global.dmoji = '🤭'
 global.done = '✅'
