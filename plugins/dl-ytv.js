@@ -1,7 +1,7 @@
 
 import fg from 'api-dylux'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
-let limit = 450
+let limit = 350
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
 	if (!args || !args[0]) throw `✳️Example :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
     if (!args[0].match(/youtu/gi)) throw `❎ Verify that the YouTube link`
