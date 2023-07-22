@@ -3,7 +3,8 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ""
 if (!/image/g.test(mime)) throw '*Respond to an image*'
-m.reply('*This command can turn your photo into anime\nWait a moment... Converting\n\n\nɪᴋʀᴀᴛᴏs-ᴍᴅ-ᴠ1 • ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ\nowner: +92 347 0027813*')    
+m.reply('*This command can turn your photo into anime\nWait a moment... Converting\n\n\n◈ ━━━━━DyLux┃ᴮᴼᵀ━━━━━ ◈
+• ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ\nowner: 𝐤𝐡𝐚𝐥𝐢𝐝-𝐭𝐞𝐜𝐡𝐬')    
 let data = await q.download?.()
 let image = await uploadImage(data)
 try {
