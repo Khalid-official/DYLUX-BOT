@@ -17,7 +17,7 @@ var handler = async (m, { conn, command, text, usedPrefix }) => {
   let { title, thumbnail, timestamp, views, ago, url } = vid;
   let wm = 'Downloading audio please wait';
 
-  let captvid = `✼ ••๑⋯ ❀ Y O U T U B E ❀ ⋯⋅๑•• ✼
+  let captvid = `✼ ••๑⋯❀𝐃𝐘𝐋𝐔𝐗 𝐌𝐔𝐒𝐈𝐂 𝐒𝐘𝐒𝐓𝐄𝐌❀⋯⋅๑•• ✼
   ❏ Title: ${title}
   ❐ Duration: ${timestamp}
   ❑ Views: ${views}
