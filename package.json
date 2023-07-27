@@ -26,16 +26,16 @@
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/FG98F/dylux-fg",
+    "homepage": "https://github.com/Khalid-niccur",
     "author": {
         "name": "FG98"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FG98F/dylux-bot.git"
+        "url": "https://github.com/Khalid-niccur"
     },
     "bugs": {
-        "url": "https://github.com/FG98F/dylux-bot/issues"
+        "url": "https://github.com/Khalid-niccur/dylux-bot/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
