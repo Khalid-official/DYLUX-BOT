@@ -338,15 +338,16 @@ export async function handler(chatUpdate) {
                 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
                 if (xp > 200)
                     m.reply('chirrido -_-') // Hehehe
-                elsem.exp += xp
-                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                     this.reply(m.chat, `✳️ Your diamonds are out\nuse the following command to buy more diamonds \n*${usedPrefix}buy* <amount> \n*${usedPrefix}buyall*`, m)
-                     continue // Limit habit
-                 }
-                 if (plugin.level > _user.level) {
-                     this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level ${_user.level}`, m)
-                     continue // If the level has not been reached
-                 }
+                else
+                    m.exp += xp
+                if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
+                    this.reply(m.chat, `✳️ Your diamonds ran out\nuse the following command to buy more diamonds\n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, m)
+                    continue // Limit habis
+                }
+                if (plugin.level > _user.level) {
+                    this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level${_user.level}`, m)
+                    continue // If the level has not been reached
+                }
                 let extra = {
                     match,
                     usedPrefix,
@@ -522,39 +523,40 @@ export async function participantsUpdate({ id, participants, action }) {
             break
     }
 }
+
 /**
-  * Handle groups update
-  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate
-  */
+ * Handle groups update
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
+ */
 export async function groupsUpdate(groupsUpdate) {
-     if (opts['self'])
-         return
-     for (const groupUpdate of groupsUpdate) {
-         const id = groupUpdate.id
-         if (!id) continue
-         let chats = global.db.data.chats[id], text = ''
-         if (!chats?.detect) continue
-         if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Description changed to \n@desc').replace('@desc', groupUpdate.desc)
+    if (opts['self'])
+        return
+    for (const groupUpdate of groupsUpdate) {
+        const id = groupUpdate.id
+        if (!id) continue
+        let chats = global.db.data.chats[id], text = ''
+        if (!chats?.detect) continue
+if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Description changed to \n@desc').replace('@desc', groupUpdate.desc)
          if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'Group name changed to \n@group').replace('@group', groupUpdate.subject)
          if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'Group icon changed to').replace('@icon', groupUpdate.icon)
          if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'Group link changes to\n@revoke').replace('@revoke', groupUpdate.revoke)
          if (!text) continue
-         await this.sendMessage(id, { text, mentions: this.parseMention(text) })
-     }
+        await this.sendMessage(id, { text, mentions: this.parseMention(text) })
+    }
 }
 
 export async function deleteUpdate(message) {
-     try {
-         const { fromMe, id, participant } = message
-         if (fromMe)
-             return
-         let msg = this.serializeM(this.loadMessage(id))
-         if (!msg)
-             return
-         let chat = global.db.data.chats[msg.chat] || {}
-         if (chat.delete)
-             return
-         await this.reply(msg.chat, `
+    try {
+        const { fromMe, id, participant } = message
+        if (fromMe)
+            return
+        let msg = this.serializeM(this.loadMessage(id))
+        if (!msg)
+            return
+        let chat = global.db.data.chats[msg.chat] || {}
+        if (chat.delete)
+            return
+        await this.reply(msg.chat, `
 ≡ Deleted a message
 ┌─⊷ 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀
 ▢ *Name :* @${participant.split`@`[0]}
@@ -563,17 +565,17 @@ To disable this feature, type
 */off antidelete*
 *.enable delete*
 `.trim(), msg, {
-             mentions: [participant]
-         })
-         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-     } catch(e) {
-         console.error(e)
-     }
+            mentions: [participant]
+        })
+        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+    } catch (e) {
+        console.error(e)
+    }
 }
 
 global.dfail = (type, m, conn) => {
-     let msg = {
-         owner: '👑 This command can only be used by the *Creator of the bot*',
+    let msg = {
+      owner: '👑 This command can only be used by the *Creator of the bot*',
          owner: '🔱 This command can only be used by the *Bot Owner*',
          mods: '🔰 This feature is only for *For Bot Moderators*',
          premium: '💠 This command is only for *Premium* members\n\nType */premium* for more info',
@@ -584,12 +586,12 @@ global.dfail = (type, m, conn) => {
          unreg: '📇Register to use this feature by Typing:\n\n*/reg name.age*\n\n📌Example : */reg dylux.16*',
          restrict: '🔐 This feature is *disabled*'
      }[type]
-     if (msg) return m.reply(msg)
+    if (msg) return m.reply(msg)
 }
 
 let file = global.__filename(import.meta.url, true)
-watchFile(file, async() => {
-     unwatchFile(file)
-     console.log(chalk.magenta("✅ Updated 'handler.js'"))
-     if (global.reloadHandler) console.log(await global.reloadHandler())
-})
+watchFile(file, async () => {
+    unwatchFile(file)
+    console.log(chalk.magenta("✅  Se actualizo 'handler.js'"))
+    if (global.reloadHandler) console.log(await global.reloadHandler())
+}) 
