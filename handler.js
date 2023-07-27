@@ -6,48 +6,48 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 
 /**
-  * @type {import('@adiwajshing/baileys')}
-  */
+ * @type {import('@adiwajshing/baileys')}
+ */
 const { proto } = (await import('@adiwajshing/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
-     clearTimeout(this)
-     resolve()
-},ms))
+    clearTimeout(this)
+    resolve()
+}, ms))
 
 /**
-  * Handle messages upsert
-  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate
-  */
+ * Handle messages upsert
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
+ */
 export async function handler(chatUpdate) {
-     this.msgqueque = this.msgqueque || []
-     if (!chatUpdate)
-         return
-     this.pushMessage(chatUpdate.messages).catch(console.error)
-     let m = chatUpdate.messages[chatUpdate.messages.length - 1]
-     if (!m)
-         return
-     if (global.db.data == null)
-         await global.loadDatabase()
-     try {
-         m = smsg(this, m) || m
-         if (!m)
-             return
-         m.exp = 0
-         m.diamond = false
-         try {
-             // TODO: use loop to insert data instead of this
-             let user = global.db.data.users[m.sender]
-             if (typeof user !== 'object')
-                 global.db.data.users[m.sender] = {}
-             if (user) {
-                 if (!isNumber(user.exp))
-                     user.exp = 0
-                 if (!isNumber(user.diamond))
-                     user.diamond = 10
-                 if (!isNumber(user.lastclaim))
-                     user.lastclaim = 0
-                 if (!('registered' in user))
+    this.msgqueque = this.msgqueque || []
+    if (!chatUpdate)
+        return
+    this.pushMessage(chatUpdate.messages).catch(console.error)
+    let m = chatUpdate.messages[chatUpdate.messages.length - 1]
+    if (!m)
+        return
+    if (global.db.data == null)
+        await global.loadDatabase()
+    try {
+        m = smsg(this, m) || m
+        if (!m)
+            return
+        m.exp = 0
+        m.diamond = false
+        try {
+            // TODO: use loop to insert data instead of this
+            let user = global.db.data.users[m.sender]
+            if (typeof user !== 'object')
+                global.db.data.users[m.sender] = {}
+            if (user) {
+                if (!isNumber(user.exp))
+                    user.exp = 0
+                if (!isNumber(user.diamond))
+                    user.diamond = 10
+                if (!isNumber(user.lastclaim))
+                    user.lastclaim = 0
+                if (!('registered' in user))
                     user.registered = false
                     //-- user registered 
                 if (!user.registered) {
@@ -311,25 +311,24 @@ export async function handler(chatUpdate) {
                 if (plugin.mods && !isMods) { // Moderator
                     fail('mods', m, this)
                     continue
-                }
-                if (plugin.premium && !isPrems) { // Premium
-                    fail('premium', m, this)
-                    continue
-                }
-                if (plugin.group && !m.isGroup) { // Group Only
-                    fail('group', m, this)
-                    continue
-                } else if (plugin.botAdmin && !isBotAdmin) { // You Admin
-                    fail('botAdmin', m, this)
-                    continue
-                } else if (plugin.admin && !isAdmin) { // User Admin
-                    fail('admin', m, this)
-                    continue
-                }
-                if (plugin.private && m.isGroup) { // Private Chat Only
-                    fail('private', m, this)
-                    continue
-           }
+                }if (plugin.premium && !isPrems) { // Premium
+                     fail('premium', m, this)
+                     continue
+                 }
+                 if (plugin.group && !m.isGroup) { // Group Only
+                     fail('group', m, this)
+                     continue
+                 } else if (plugin.botAdmin && !isBotAdmin) { // You Admin
+                     fail('botAdmin', m, this)
+                     continue
+                 } else if (plugin.admin && !isAdmin) { // User Admin
+                     fail('admin', m, this)
+                     continue
+                 }
+                 if (plugin.private && m.isGroup) { // Private Chat Only
+                     fail('private', m, this)
+                     continue
+                 }
                  if (plugin.register == true && _user.registered == false) { // Butuh daftar?
                      fail('unreg', m, this)
                      continue
@@ -348,65 +347,65 @@ export async function handler(chatUpdate) {
                      this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level ${_user.level}`, m)
                      continue // If the level has not been reached
                  }
-                 letextra = {
-                     matches,
-                     usedPrefix,
-                     noPrefix,
-                     _args,
-                     args,
-                     command,
-                     text,
-                     conn: this,
-                     participants,
-                     groupMetadata,
-                     user,
-                     bot,
-                     isROwner,
-                     isOwner,
-                     isRadmin,
-                     isAdmin,
-                     isBotAdmin,
-                     isPrems,
-                     chatUpdate,
-                     __dirname: ___dirname,
-                     __filename
-                 }
-                 try {
-                     await plugin.call(this, m, extra)
-                     if (!isPrems)
-                         m.diamond = m.diamond || plugin.diamond || false
-                 } catch(e) {
-                     // Error occurred
-                     m.error = e
-                     console.error(e)
-                     if(e){
-                         lettext = format(e)
-                         for (let key of Object.values(global.APIKeys))
-                             text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')
-                         m.reply(text)
-                     }
-                 } finally {
-                     // m.reply(util.format(_user))
-                     if (typeof plugin.after === 'function') {
-                         try {
-                             await plugin.after.call(this, m, extra)
-                         } catch(e) {
-                             console.error(e)
-                         }
-                     }
-                     if (m.diamond)
-                         m.reply(`You used *${+m.diamond}* 💎`)
-                 }
-                 break
-             }
-         }
-     } catch(e) {
-         console.error(e)
-     } finally {
-         if (opts['cake'] && m.text) {
-             const cakeIndex = this.msgqueque.indexOf(m.id || m.key.id)
-             if (quequeIndex !== -1)
-                 this.msgqueque.splice(quequeIndex, 1)
+                let extra = {
+                    match,
+                    usedPrefix,
+                    noPrefix,
+                    _args,
+                    args,
+                    command,
+                    text,
+                    conn: this,
+                    participants,
+                    groupMetadata,
+                    user,
+                    bot,
+                    isROwner,
+                    isOwner,
+                    isRAdmin,
+                    isAdmin,
+                    isBotAdmin,
+                    isPrems,
+                    chatUpdate,
+                    __dirname: ___dirname,
+                    __filename
+                }
+                try {
+                    await plugin.call(this, m, extra)
+                    if (!isPrems)
+                        m.diamond = m.diamond || plugin.diamond || false
+                } catch (e) {
+                    // Error occured
+                    m.error = e
+                    console.error(e)
+                    if (e) {
+                        let text = format(e)
+                        for (let key of Object.values(global.APIKeys))
+                            text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')
+                        m.reply(text)
+                    }
+                } finally {
+                    // m.reply(util.format(_user))
+                    if (typeof plugin.after === 'function') {
+                        try {
+                            await plugin.after.call(this, m, extra)
+                        } catch (e) {
+                            console.error(e)
+                        }
+                    }
+                    if (m.diamond)
+                        m.reply(`Utilizaste *${+m.diamond}* 💎`)
+                }
+                break
+            }
+        }
+    } catch (e) {
+        console.error(e)
+    } finally {
+        if (opts['queque'] && m.text) {
+            const quequeIndex = this.msgqueque.indexOf(m.id || m.key.id)
+            if (quequeIndex !== -1)
+                this.msgqueque.splice(quequeIndex, 1)
         }
         //console.log(global.db.data.users[m.sender])
         let user, stats = global.db.data.stats
@@ -452,55 +451,55 @@ export async function handler(chatUpdate) {
         }
         if (opts['autoread'])
             await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
-    }}
+    }
+}
 
 /**
-  * Handle groups participants update
-  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate
-  */
+ * Handle groups participants update
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
+ */
 export async function participantsUpdate({ id, participants, action }) {
-     if (opts['self'])
-         return
-     // if (id in conn.chats) return // First login will spam
-     if (this.isInit)
-         return
-     if (global.db.data == null)
-         await loadDatabase()
-     let chat = global.db.data.chats[id] || {}
-     let text = ''
-     switch(action) {
-         case 'add':
-         case 'remove':
-             if (chat.welcome) {
-                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                 for (let user of participants) {
-                     let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
-                     let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
-                     try {
-                         pp = await this.profilePictureUrl(user, 'image')
-                         ppgp = await this.profilePictureUrl(id, 'image')
-                         } finally {
-                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user').replace('@group', await this.getName(id)) .replace('@desc', groupMetadata.desc?.toString() || 'Unknown') :
-                             (chat.sBye || this.bye || conn.bye || 'Bye, @user')).replace('@user', '@' + user.split('@')[0])
+    if (opts['self'])
+        return
+    // if (id in conn.chats) return // First login will spam
+    if (this.isInit)
+        return
+    if (global.db.data == null)
+        await loadDatabase()
+    let chat = global.db.data.chats[id] || {}
+    let text = ''
+    switch (action) {
+        case 'add':
+        case 'remove':
+            if (chat.welcome) {
+                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+                for (let user of participants) {
+                    let pp = 'https://i.imgur.com/whjlJSf.jpg'
+                    let ppgp = 'https://i.imgur.com/whjlJSf.jpg'
+                    try {
+                        pp = await this.profilePictureUrl(user, 'image')
+                        ppgp = await this.profilePictureUrl(id, 'image')
+                        } finally {
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bienvenido, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido') :
+                            (chat.sBye || this.bye || conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0])
                          
-                             let welcome = API('fgmods', '/api/welcome', {
-                                 username: await this.getName(user),
-                                 groupname: await this.getName(id),
-                                 groupicon: ppgp,
-                                 membercount: groupMetadata.participants.length,
-                                 profile: pp,
-                                 background: 'https://i.imgur.com/bbWbASn.jpg'
-                             }, 'apikey')
+                            let wel = API('fgmods', '/api/welcome', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/bbWbASn.jpg'
+                            }, 'apikey')
 
-                             let read = API('fgmods', '/api/goodbye', {
-                                 username: await this.getName(user),
-                                 groupname: await this.getName(id),
-                                 groupicon: ppgp,
-                                 membercount: groupMetadata.participants.length,
-                                 profile: pp,
-                                 background: 'https://i.imgur.com/klTSO3d.jpg'
-                             }, 'apikey')
-                         this.sendFile(id, action === 'add' ? wel : read, 'pp.jpg', text, null, false, { mentions: [user] })
+                            let lea = API('fgmods', '/api/goodbye', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/klTSO3d.jpg'
+                            }, 'apikey')this.sendFile(id, action === 'add' ? wel : read, 'pp.jpg', text, null, false, { mentions: [user] })
                          /*this.sendButton(id, text, fgig, action === 'add' ? wel : read, [
                               [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')],
                               [(action == 'add' ? '⏍ INFO' : 'ッ'), (action == 'add' ? '/info' : ' ')] ], null, {mentions: [user]})
@@ -512,7 +511,7 @@ export async function participantsUpdate({ id, participants, action }) {
          case 'promote':
              text = (chat.sPromote || this.spromote || conn.spromote || '@user is now an admin')
          case 'demote':
-             let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg')
+             let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.imgur.com/whjlJSf.jpg')
              if(!text)
                  text = (chat.sDemote || this.sdemote || conn.sdemote || '@user is no longer an administrator')
              text = text.replace('@user', '@' + participants[0].split('@')[0])
@@ -522,6 +521,7 @@ export async function participantsUpdate({ id, participants, action }) {
              break
      }
 }
+
 /**
   * Handle groups update
   * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate
@@ -535,23 +535,21 @@ export async function groupsUpdate(groupsUpdate) {
          let chats = global.db.data.chats[id], text = ''
          if (!chats?.detect) continue
          if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Description changed to \n@desc').replace('@desc', groupUpdate.desc)
-         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'Group name changed to \n@group').replace('@group', groupUpdate.subject)
+         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'Group name changed to \n@group').replace('@subject', groupUpdate.subject)
          if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'Group icon changed to').replace('@icon', groupUpdate.icon)
          if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'Group link changes to\n@revoke').replace('@revoke', groupUpdate.revoke)
          if (!text) continue
          await this.sendMessage(id, { text, mentions: this.parseMention(text) })
-     }
-}
-
-export async function deleteUpdate(message) {
-    try {
-        const { fromMe, id, participant } = message
-        if (fromMe)
-            return
-        let msg = this.serializeM(this.loadMessage(id))
-        if (!msg)
-            return
-     let chat = global.db.data.chats[msg.chat] || {}
+    }
+}export async function deleteUpdate(message) {
+     try {
+         const { fromMe, id, participant } = message
+         if (fromMe)
+             return
+         let msg = this.serializeM(this.loadMessage(id))
+         if (!msg)
+             return
+         let chat = global.db.data.chats[msg.chat] || {}
          if (chat.delete)
              return
          await this.reply(msg.chat, `
@@ -572,7 +570,8 @@ To disable this feature, type
 }
 
 global.dfail = (type, m, conn) => {
-    let msg = {owner: '👑 This command can only be used by the *Creator of the bot*',
+     let msg = {
+         owner: '👑 This command can only be used by the *Creator of the bot*',
          owner: '🔱 This command can only be used by the *Bot Owner*',
          mods: '🔰 This feature is only for *For Bot Moderators*',
          premium: '💠 This command is only for *Premium* members\n\nType */premium* for more info',
