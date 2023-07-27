@@ -2,14 +2,14 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
-global.nomorbot = '254776331490' //Nomor Bot
 global.owner = [
-  ['254736958034', 'KHALID-TECHNOLOGIES', true],
-  ['923470027813']
-] //Numeros
+  ['254736958034', '*KHALID-TECHNOLOGIES*', true],
+  ['923470027813'], 
+  ['254793618247'] 
+] //Numeros de owner 
 
-global.mods = ['254736958034'] 
-global.prems = ['254736958034', '254793618247', '923470027813', '255742747928']
+global.mods = ['254793618247'] 
+global.prems = ['254793618247', '923470027813', '254736958034']
 global.APIs = { // API Prefix
   // name: 'https://website'
   xteam: 'https://api.xteam.xyz', 
@@ -21,13 +21,13 @@ global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zenzapis.xyz': '675e34de8a', 
-  'https://api-fgmods.ddns.net': 'fg-dylux'
+  'https://api-fgmods.ddns.net': 'TU-APIKEY' //Regístrese en https://api-fgmods.ddns.net/
 }
 
 // Sticker WM
 global.packname = 'DyLux┃ᴮᴼᵀ' 
 global.author = 'KHALID-tech' 
-global.fgig = '▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff\n' 
+global.fgig = '▢ Sígueme en Instagram\nhttps://www.instagram.com/hi_niccur\n' 
 global.dygp = 'https://github.com/Khalid-niccur'
 global.fgsc = 'https://github.com/Khalid-niccur/DYLUX-BOT' 
 global.fgyt = 'https://t.me/dextrousmodsKENYA'
