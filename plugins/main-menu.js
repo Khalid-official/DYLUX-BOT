@@ -142,7 +142,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     
-    let pp = './src/dylux_logo.jpg'
+    let pp = './src/dylux_logo.mp4'
      
     conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rpl)
     /*conn.sendButton(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, [
