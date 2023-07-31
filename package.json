@@ -83,7 +83,7 @@
         "didyoumean": "^1.2.2",
         "api-dylux": "^1.5.6",
         "@vitalets/google-translate-api": "^9.2.0",
-        "openai": "^3.1.0",
+        "openai": "^3.2.1",
         "aptoide-scraper": "^1.0.1",
         "yargs": "^17.6.0" 
     },
