@@ -16,7 +16,6 @@ let handler = async (m, { text, usedPrefix, command }) => {
     const data = await response.json();
     const { response: result } = data; 
     m.reply(result.trim()); 
-     m.react('🚀') 
   } catch (error) {
     console.error('Error:', error); 
     throw `*ERROR*`;
