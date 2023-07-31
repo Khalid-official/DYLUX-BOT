@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { text, usedPrefix, command }) => {
   
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `Hi😎👋 hello i Am Dylux bot Openai system🚀 created by KHalid-Tech, how may i assist you today❤`;
+    throw `Hi😎👋 hello i Am Dylux bot Openai system🚀 created by Khalid-Tech, how may i assist you today❤`;
   }
 
  
