@@ -34,11 +34,6 @@ global.fgyt = 'https://github.com/Khalid-niccur'
 global.fgpyp = 'https://paypal.me/fg98f'
 global.fglog = 'https://i.imgur.com/Owmb93c.png' 
 
-/*============== CHATGPT ==============*/
-global.openAiapi = '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'   // Get you Api-key from 'https://platform.openai.com/account/api-keys'
-global.org = 'org-6BGlsB8TYerFQPk6vLKJTJYJ'   // Get you Org-Key from 'https://platform.openai.com/account/org-settings' 
-
-
 global.wait = '💓𝕡𝕝𝕖𝕒𝕤𝕖 𝕒𝕨𝕒𝕚𝕥 𝕔𝕠𝕞𝕣𝕒𝕕𝕖⌛ \n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
 global.dmoji = '🤭'
