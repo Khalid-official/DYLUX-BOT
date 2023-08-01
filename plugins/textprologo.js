@@ -1,21 +1,21 @@
 import axios from 'axios'
 let split = '|'
 let handler = async (m, { conn, args: [effect], text: txt, usedPrefix, command, name }) => {
-if (!effect) throw '*¿correct use of command?*\n—◉ _#logo (efect) (text)_\n*𝙴xample:*\n—◉ _#logo 3d-deep-sea-metal Guru_\n\n*[❗]  when two text is needed, use:*\n—◉ _#logo (efect) (text1|text2)_\n*𝙴xample:*\n—◉ _#logo Wolf-Logo-Galaxy GURU|Bot\n\n*<𝑳𝑰𝑺𝑻  𝑬𝑭𝑬𝑪𝑻𝑺/>*\n\n° ඬ⃟📝 #logo ' + effects.map(v => v.title).join('\n° ඬ⃟📝 #logo *')
+if (!effect) throw '*[❗info❗] how to use this command?*\n—◉ _#logo (efecto) (texto)_\n*Azample:*\n—◉ _#logo 3d-deep-sea-metal Dylux_\n\n*[❗] when I tell them that a text is needed, the use would be:*\n—◉ _#logo (efecto) (texto1|texto2)_\n*Example:*\n—◉ _#logo Wolf-Logo-Galaxy dylux|Bot_\n\n*<list of effects/>*\n\n° ඬ⃟📝 #logo ' + effects.map(v => v.title).join('\n° ඬ⃟📝 #logo ')
 effect = effect.toLowerCase()
-if (!effects.find(v => (new RegExp(v.title, 'gi')).test(effect))) throw `*this ${effect} can not find this*`
+if (!effects.find(v => (new RegExp(v.title, 'gi')).test(effect))) throw `*[❗𝐈𝐍𝐅𝐎❗] The effect ${effect} It's not for you*`
 let text = txt.replace(new RegExp(effect, 'gi'), '').trimStart()
 if (text.includes(split)) text = text.split(split)
 text = Array.isArray(text) ? text : [text]
 let res = await textpro(effect, ...text)
-if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗]  ${effect} 𝙽ot found*` : `*use correct format ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`
+if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗] The effect ${effect} It's not for you*` : `*[❗𝐈𝐍𝐅𝐎❗] the correct use of the command is ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`
 let result = await axios.get(res, {
 responseType: 'arraybuffer'
 })
-await conn.sendFile(m.chat, result.data, 'Error.jpg', `*PROCESSING!!*\n*EFFECT: ${effect}*`, m)
+await conn.sendFile(m.chat, result.data, 'Error.jpg', `*take your custom image!!*\n*Effect: ${effect}*`, m)
 }
 handler.help = ['logos']
-handler.tags = ['logo']
+handler.tags = ['nulis']
 handler.command = /^(logo|logos)$/i
 export default handler
 
@@ -24,19 +24,19 @@ import fetch from 'node-fetch'
 import cheerio from 'cheerio'
 var effects = [
   {
-    "title": "seametal",
+    "title": "3d-deep-sea-metal",
     "url": "https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html"
   },
   {
-    "title": "Americanflag",
+    "title": "American-flag-3D",
     "url": "https://textpro.me/create-american-flag-3d-text-effect-online-1051.html"
   },
   {
-    "title": "scifi",
+    "title": "3D-sci-fi",
     "url": "https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html"
   },
   {
-    "title": "calligraphy",
+    "title": "3D-rainbow-color-calligraphy",
     "url": "https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html"
   },
   {
@@ -304,7 +304,7 @@ var effects = [
     "url": "https://textpro.me/holographic-3d-text-effect-975.html"
   },
   {
-    "title": "avenger",
+    "title": "3D-Avengers-logo",
     "url": "https://textpro.me/create-3d-avengers-logo-online-974.html"
   },
   {
@@ -312,15 +312,15 @@ var effects = [
     "url": "https://textpro.me/metal-purple-dual-effect-973.html"
   },
   {
-    "title": "metamarvel",
+    "title": "logo-style-Marvel-studios-Ver:-metal",
     "url": "https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html"
   },
   {
-    "title": "marvel",
+    "title": "logo-style-Marvel-studios",
     "url": "https://textpro.me/create-logo-style-marvel-studios-online-971.html"
   },
   {
-    "title": "Silver",
+    "title": "Deluxe-Silver",
     "url": "https://textpro.me/deluxe-silver-text-effect-970.html"
   },
   {
@@ -364,7 +364,7 @@ var effects = [
     "url": "https://textpro.me/create-text-logo-3d-metal-online-957.html"
   },
   {
-    "title": "avatar",
+    "title": "avatar-gold",
     "url": "https://textpro.me/create-avatar-gold-online-956.html"
   },
   {
@@ -412,11 +412,11 @@ var effects = [
     "url": "https://textpro.me/create-wolf-logo-galaxy-online-936.html"
   },
   {
-    "title": "Ninja",
+    "title": "Ninja-Logo",
     "url": "https://textpro.me/create-ninja-logo-online-935.html"
   },
   {
-    "title": "Joker",
+    "title": "Logo-Joker",
     "url": "https://textpro.me/create-logo-joker-online-934.html"
   },
   {
@@ -424,11 +424,11 @@ var effects = [
     "url": "https://textpro.me/wicker-text-effect-online-932.html"
   },
   {
-    "title": "NaturalLeaves",
+    "title": "Natural-Leaves",
     "url": "https://textpro.me/natural-leaves-text-effect-931.html"
   },
   {
-    "title": "Sparkle",
+    "title": "Firework-Sparkle",
     "url": "https://textpro.me/firework-sparkle-text-effect-930.html"
   },
   {
@@ -436,31 +436,31 @@ var effects = [
     "url": "https://textpro.me/skeleton-text-effect-online-929.html"
   },
   {
-    "title": "RedBalloon",
+    "title": "Red-Foil-Balloon",
     "url": "https://textpro.me/red-foil-balloon-text-effect-928.html"
   },
   {
-    "title": "PurpleBalloon",
+    "title": "Purple-Foil-Balloon",
     "url": "https://textpro.me/purple-foil-balloon-text-effect-927.html"
   },
   {
-    "title": "PinkBalloon",
+    "title": "Pink-Foil-Balloon",
     "url": "https://textpro.me/pink-foil-balloon-text-effect-926.html"
   },
   {
-    "title": "GreenBalloon",
+    "title": "Green-Foil-Balloon",
     "url": "https://textpro.me/green-foil-balloon-text-effect-925.html"
   },
   {
-    "title": "CyanBalloon",
+    "title": "Cyan-Foil-Balloon",
     "url": "https://textpro.me/cyan-foil-balloon-text-effect-924.html"
   },
   {
-    "title": "BlueBalloon",
+    "title": "Blue-Foil-Balloon",
     "url": "https://textpro.me/blue-foil-balloon-text-effect-923.html"
   },
   {
-    "title": "GoldBalloon",
+    "title": "Gold-Foil-Balloon",
     "url": "https://textpro.me/gold-foil-balloon-text-effect-922.html"
   },
   {
@@ -468,7 +468,7 @@ var effects = [
     "url": "https://textpro.me/steel-text-effect-online-921.html"
   },
   {
-    "title": "UltraGloss",
+    "title": "Ultra-Gloss",
     "url": "https://textpro.me/ultra-gloss-text-effect-online-920.html"
   },
   {
@@ -476,15 +476,15 @@ var effects = [
     "url": "https://textpro.me/denim-text-effect-online-919.html"
   },
   {
-    "title": "DecorateGreen",
+    "title": "Decorate-Green",
     "url": "https://textpro.me/decorate-green-text-effect-918.html"
   },
   {
-    "title": "DecoratePurple",
+    "title": "Decorate-Purple",
     "url": "https://textpro.me/decorate-purple-text-effect-917.html"
   },
   {
-    "title": "PeridotStone",
+    "title": "Peridot-Stone",
     "url": "https://textpro.me/peridot-stone-text-effect-916.html"
   },
   {
@@ -496,15 +496,15 @@ var effects = [
     "url": "https://textpro.me/lava-text-effect-online-914.html"
   },
   {
-    "title": "YellowGlass",
+    "title": "Yellow-Glass",
     "url": "https://textpro.me/yellow-glass-text-effect-913.html"
   },
   {
-    "title": "PurpleGlass",
+    "title": "Purple-Glass",
     "url": "https://textpro.me/purple-glass-text-effect-912.html"
   },
   {
-    "title": "OrangeGlass",
+    "title": "Orange-Glass",
     "url": "https://textpro.me/orange-glass-text-effect-911.html"
   },
   {
@@ -512,31 +512,31 @@ var effects = [
     "url": "https://textpro.me/green-glass-text-effect-910.html"
   },
   {
-    "title": "CyanGlass",
+    "title": "Cyan-Glass",
     "url": "https://textpro.me/cyan-glass-text-effect-909.html"
   },
   {
-    "title": "BlueGlass",
+    "title": "Blue-Glass",
     "url": "https://textpro.me/blue-glass-text-effect-908.html"
   },
   {
-    "title": "RedGlass",
+    "title": "Red-Glass",
     "url": "https://textpro.me/red-glass-text-effect-907.html"
   },
   {
-    "title": "PurpleShiny-Glass",
+    "title": "Purple-Shiny-Glass",
     "url": "https://textpro.me/purple-shiny-glass-text-effect-906.html"
   },
   {
-    "title": "CaptainAmerica",
+    "title": "Captain-America",
     "url": "https://textpro.me/captain-america-text-effect-905.html"
   },
   {
-    "title": "Robot",
+    "title": "Robot-R2-D2",
     "url": "https://textpro.me/robot-r2-d2-text-effect-903.html"
   },
   {
-    "title": "RainbowEqualizer",
+    "title": "Rainbow-Equalizer",
     "url": "https://textpro.me/rainbow-equalizer-text-effect-902.html"
   },
   {
