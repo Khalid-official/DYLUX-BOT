@@ -21,7 +21,7 @@ let handler = async (m, { conn, text }) => {
     let data = json.data[0];
 
     // Add custom property.
-    data.creator = 'DYLUX';
+    data.creator = 'GURU';
 
     let response = '';
 
@@ -90,7 +90,7 @@ let handler = async (m, { conn, text }) => {
     console.log('JSON response:', json);
 
     
-    json.creator = 'DYLUX';
+    json.creator = 'GURU';
 
     let milf = '';
     for (let prop in json) {
