@@ -1,39 +1,32 @@
-import gtts from 'node-gtts'
-import { readFileSync, unlinkSync } from 'fs'
-import { join } from 'path'
-const defaultLang = 'is'
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-letlang = args[0]
-let text = args.slice(1).join(' ')
-if ((args[0] || '').length !== 2) {
-lang = defaultLang
-text = args.join(' ')
-}
-if (!text && m.quoted?.text) text = m.quoted.text
+let gtts = require('node-gtts')
+let fs = require('fs')
+let path = require('path')
+let { spawn } = require('child_process')
+let handler = async (m, { conn, args, text }) => {
+let lang = 'pt'
+if (args[0].length === 2) lang = args[0]
+else text = args.join(' ')
+if (!text) text = lang
 let res
 try { res = await tts(text, lang) }
-catch(e) {
+catch (e) {
 m.reply(e + '')
-text = args.join(' ')
-if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] insert the text you want to convert voice memo, example: ${usedPrefix + command} dylux bot is created by khalid*`
-res = await tts(text, defaultLang)
+res = await tts(text)
 } finally {
-if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
+conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
 }}
 handler.help = ['tts <lang> <teks>']
-handler.tags = ['tools']
-handler.command = /^g?tts$/i
-export default handler
-
-function tts(text, lang = 'is') {
+handler.tags = ['general']
+handler.command = /^tts$/i
+module.exports = handler
+function tts(text, lang = 'pt') {
 console.log(lang, text)
 return new Promise((resolve, reject) => {
 try {
 let tts = gtts(lang)
-let filePath = join(global.__dirname(import.meta.url), '../tmp', (1 * new Date) + '.wav')
+let filePath = path.join(__dirname, '../tmp', (1 * new Date) + '.wav')
 tts.save(filePath, text, () => {
-resolve(readFileSync(filePath))
-unlinkSync(filePath)
+resolve(fs.readFileSync(filePath))
+fs.unlinkSync(filePath)
 })
-} catch(e) { reject(e) }
-})}
+} catch (e) { reject(e) }})}
