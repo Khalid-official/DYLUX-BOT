@@ -395,7 +395,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.diamond)
-                        m.reply(`YOU USED*${+m.diamond}* 💎BUDDY`)
+                        m.reply(`YOU USED*${+m.diamond}* 💎 BUDDY`)
                 }
                 break
             }
