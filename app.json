@@ -1,45 +1,7 @@
 {
-  "name": "whatsapp-bot (DYLUX-BOT)",
-  "description": " Whatsapp bot.",
-  "keywords": [
-    "whatsapp bot"
-  ],
-  "repository": "https://github.com/Khalid-niccur/DYLUX-BOT",
-  "stack": "container",
-  "env": {
-    "OPENAI_API_KEY": {
-      "description": "openai apikey",
-      "required": false,
-      "value": ""
-    },
-    "OPENAI_ORGANIZATION": {
-      "description": "openai organisation id",
-      "required": false,
-      "value": ""
-    },
-    "MONGO_DB": {
-      "description": "your mongodb database url",
-      "required": false,
-      "value": ""
-    },
-    "REMOVE_BG_API_KEY": {
-      "description": "removebg api key",
-      "required": false,
-      "value": ""
-    }
-    },
-    "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
-    {
-      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    },
-    {
-      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
-    }
-  ]
+  "name": "dylux-fg",
+  "description": "Customizable WhatsApp Bot",
+  "repository": "https://github.com/FG98F/dylux-fg",
+  "logo": "https://i.ibb.co/dG6rm49/fg-logo.png",
+  "keywords": ["bot", "whatsapp", "whatsapp-bot", "rpg", "dylux-bot-md", "dylux-bot"]
 }
