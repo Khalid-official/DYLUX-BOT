@@ -6,9 +6,9 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 
 /**
- * @type {import('@adiwajshing/baileys')}
+ * @type {import('@whiskeysockets/baileys')}
  */
-const { proto } = (await import('@adiwajshing/baileys')).default
+const { proto } = (await import('@whiskeysockets/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
     clearTimeout(this)
@@ -17,7 +17,7 @@ const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function (
 
 /**
  * Handle messages upsert
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
+ * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
  */
 export async function handler(chatUpdate) {
     this.msgqueque = this.msgqueque || []
@@ -341,11 +341,11 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                    this.reply(m.chat, `✳️ Your diamonds ran out\nuse the following command to buy more diamonds\n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, m)
+                    this.reply(m.chat, `✳️ Tus diamantes se agotaron\nuse el siguiente comando para comprar más diamantes \n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
-                    this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level${_user.level}`, m)
+                    this.reply(m.chat, `✳️ nivel requerido ${plugin.level} para usar este comando. \nTu nivel ${_user.level}`, m)
                     continue // If the level has not been reached
                 }
                 let extra = {
@@ -395,7 +395,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.diamond)
-                        m.reply(`YOU USED*${+m.diamond}* 💎 BUDDY`)
+                        m.reply(`Utilizaste *${+m.diamond}* 💎`)
                 }
                 break
             }
@@ -457,7 +457,7 @@ export async function handler(chatUpdate) {
 
 /**
  * Handle groups participants update
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
+ * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
  */
 export async function participantsUpdate({ id, participants, action }) {
     if (opts['self'])
@@ -481,8 +481,8 @@ export async function participantsUpdate({ id, participants, action }) {
                         pp = await this.profilePictureUrl(user, 'image')
                         ppgp = await this.profilePictureUrl(id, 'image')
                         } finally {
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hey Welcome, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido') :
-                            (chat.sBye || this.bye || conn.bye || 'Bye, We wont miss you, @user')).replace('@user', '@' + user.split('@')[0])
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bienvenido, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido') :
+                            (chat.sBye || this.bye || conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0])
                          
                             let wel = API('fgmods', '/api/welcome', {
                                 username: await this.getName(user),
@@ -511,11 +511,11 @@ export async function participantsUpdate({ id, participants, action }) {
             }
             break
         case 'promote':
-            text = (chat.sPromote || this.spromote || conn.spromote || '@user is now an administrator')
+            text = (chat.sPromote || this.spromote || conn.spromote || '@user ahora es administrador')
         case 'demote':
             let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg') 
             if (!text)
-                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user is no longer an administrator')
+                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ya no es administrador')
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)    
             this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: this.parseMention(text) })
@@ -526,7 +526,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
 /**
  * Handle groups update
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
+ * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
 export async function groupsUpdate(groupsUpdate) {
     if (opts['self'])
@@ -536,11 +536,11 @@ export async function groupsUpdate(groupsUpdate) {
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
         if (!chats?.detect) continue
-if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Description changed to \n@desc').replace('@desc', groupUpdate.desc)
-         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'Group name changed to \n@group').replace('@group', groupUpdate.subject)
-         if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'Group icon changed to').replace('@icon', groupUpdate.icon)
-         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'Group link changes to\n@revoke').replace('@revoke', groupUpdate.revoke)
-         if (!text) continue
+        if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Descripción cambiada a \n@desc').replace('@desc', groupUpdate.desc)
+        if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'El nombre del grupo cambió a \n@group').replace('@group', groupUpdate.subject)
+        if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'El icono del grupo cambió a').replace('@icon', groupUpdate.icon)
+        if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'El enlace del grupo cambia a\n@revoke').replace('@revoke', groupUpdate.revoke)
+        if (!text) continue
         await this.sendMessage(id, { text, mentions: this.parseMention(text) })
     }
 }
@@ -557,11 +557,11 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-≡ Deleted a message
-┌─⊷ 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀
-▢ *Name :* @${participant.split`@`[0]}
+≡ Borró un mensaje  
+┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
+▢ *Nombre :* @${participant.split`@`[0]} 
 └─────────────
-To disable this feature, type
+Para desactivar esta función, escriba 
 */off antidelete*
 *.enable delete*
 `.trim(), msg, {
@@ -575,17 +575,17 @@ To disable this feature, type
 
 global.dfail = (type, m, conn) => {
     let msg = {
-      owner: '👑 This command can only be used by the *Creator of the bot*',
-         owner: '🔱 This command can only be used by the *Bot Owner*',
-         mods: '🔰 This feature is only for *For Bot Moderators*',
-         premium: '💠 This command is only for *Premium* members\n\nType */premium* for more info',
-         group: '⚙️ This command can only be used in groups!',
-         private: '📮 This command can only be used in the chat *private of the Bot*',
-         admin: '🛡️ This command is only for *Admins* of the group',
-         botAdmin: '💥 To use this command I must be *Administrator!*',
-         unreg: '📇Register to use this feature by Typing:\n\n*/reg name.age*\n\n📌Example : */reg dylux.16*',
-         restrict: '🔐 This feature is *disabled*'
-     }[type]
+        rowner: '👑 Este comando solo puede ser utilizado por el *Creador del bot*',
+        owner: '🔱 Este comando solo puede ser utilizado por el *Dueño del Bot*',
+        mods: '🔰  Esta función es solo para *Para moderadores del Bot*',
+        premium: '💠 Este comando es solo para miembros *Premium*\n\nEscribe */premium* para más info',
+        group: '⚙️ ¡Este comando solo se puede usar en grupos!',
+        private: '📮 Este comando solo se puede usar en el chat *privado del Bot*',
+        admin: '🛡️ Este comando es solo para *Admins* del grupo',
+        botAdmin: '💥 ¡Para usar este comando debo ser *Administrador!*',
+        unreg: '📇 Regístrese para usar esta función  Escribiendo:\n\n*/reg nombre.edad*\n\n📌Ejemplo : */reg dylux.16*',
+        restrict: '🔐 Esta característica está *deshabilitada*'
+    }[type]
     if (msg) return m.reply(msg)
 }
 
