@@ -340,12 +340,11 @@ export async function handler(chatUpdate) {
                     m.reply('chirrido -_-') // Hehehe
                 else
                     m.exp += xp
-                if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                    this.reply(m.chat, `✳️ Tus diamantes se agotaron\nuse el siguiente comando para comprar más diamantes \n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, m)
-                    continue // Limit habis
-                }
-                if (plugin.level > _user.level) {
-                    this.reply(m.chat, `✳️ nivel requerido ${plugin.level} para usar este comando. \nTu nivel ${_user.level}`, m)
+                if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {this.reply(m.chat, `✳️ Your diamonds are out\nuse the following command to buy more diamonds \n*${usedPrefix}buy* <amount> \n*${usedPrefix}buyall*`, m)
+                     continue // Limit habit
+                 }
+                 if (plugin.level > _user.level) {
+                     this.reply(m.chat, `✳️ required level ${plugin.level} to use this command. \nYour level ${_user.level}`, m)
                     continue // If the level has not been reached
                 }
                 let extra = {
@@ -395,7 +394,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.diamond)
-                        m.reply(`Utilizaste *${+m.diamond}* 💎`)
+                        m.reply(`you used*${+m.diamond}* 💎buddy`)
                 }
                 break
             }
@@ -511,11 +510,11 @@ export async function participantsUpdate({ id, participants, action }) {
             }
             break
         case 'promote':
-            text = (chat.sPromote || this.spromote || conn.spromote || '@user ahora es administrador')
+            text = (chat.sPromote || this.spromote || conn.spromote || '@user is now an administrator')
         case 'demote':
             let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.imgur.com/whjlJSf.jpg') 
             if (!text)
-                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ya no es administrador')
+                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user is no longer an administrator')
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)    
             this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: this.parseMention(text) })
@@ -535,8 +534,7 @@ export async function groupsUpdate(groupsUpdate) {
         const id = groupUpdate.id
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
-        if (!chats?.detect) continue
-        if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Descripción cambiada a \n@desc').replace('@desc', groupUpdate.desc)
+        if (!chats?.detect) continueif (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Descripción cambiada a \n@desc').replace('@desc', groupUpdate.desc)
         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'El nombre del grupo cambió a \n@group').replace('@subject', groupUpdate.subject)
         if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'El icono del grupo cambió a').replace('@icon', groupUpdate.icon)
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'El enlace del grupo cambia a\n@revoke').replace('@revoke', groupUpdate.revoke)
@@ -557,11 +555,11 @@ export async function deleteUpdate(message) {
         if (chat.delete)
             return
         await this.reply(msg.chat, `
-≡ Borró un mensaje  
-┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-▢ *Nombre :* @${participant.split`@`[0]} 
+≡ Deleted a message
+┌─⊷ 𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀
+▢ *Name :* @${participant.split`@`[0]}
 └─────────────
-Para desactivar esta función, escriba 
+To disable this feature, type
 */off antidelete*
 *.enable delete*
 `.trim(), msg, {
@@ -574,17 +572,16 @@ Para desactivar esta función, escriba
 }
 
 global.dfail = (type, m, conn) => {
-    let msg = {
-        rowner: '👑 Este comando solo puede ser utilizado por el *Creador del bot*',
-        owner: '🔱 Este comando solo puede ser utilizado por el *Dueño del Bot*',
-        mods: '🔰  Esta función es solo para *Para moderadores del Bot*',
-        premium: '💠 Este comando es solo para miembros *Premium*\n\nEscribe */premium* para más info',
-        group: '⚙️ ¡Este comando solo se puede usar en grupos!',
-        private: '📮 Este comando solo se puede usar en el chat *privado del Bot*',
-        admin: '🛡️ Este comando es solo para *Admins* del grupo',
-        botAdmin: '💥 ¡Para usar este comando debo ser *Administrador!*',
-        unreg: '📇 Regístrese para usar esta función  Escribiendo:\n\n*/reg nombre.edad*\n\n📌Ejemplo : */reg dylux.16*',
-        restrict: '🔐 Esta característica está *deshabilitada*'
+    let msg = {owner: '👑 This command can only be used by the *Creator of the bot*',
+         owner: '🔱 This command can only be used by the *Bot Owner*',
+         mods: '🔰 This feature is only for *For Bot Moderators*',
+         premium: '💠 This command is only for *Premium* members\n\nType */premium* for more info',
+         group: '⚙️ This command can only be used in groups!',
+         private: '📮 This command can only be used in the chat *private of the Bot*',
+         admin: '🛡️ This command is only for *Admins* of the group',
+         botAdmin: '💥 To use this command I must be *Administrator!*',
+         unreg: '📇Register to use this feature by Typing:\n\n*/reg name.age*\n\n📌Example : */reg dylux.16*',
+         restrict: '🔐 This feature is *disabled*'
     }[type]
     if (msg) return m.reply(msg)
 }
@@ -592,6 +589,6 @@ global.dfail = (type, m, conn) => {
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
     unwatchFile(file)
-    console.log(chalk.magenta("✅  Se actualizo 'handler.js'"))
+    console.log(chalk.magenta("✅Updated 'handler.js'"))
     if (global.reloadHandler) console.log(await global.reloadHandler())
 }) 
