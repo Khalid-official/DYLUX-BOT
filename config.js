@@ -2,14 +2,14 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
-global.nomorbot = '254716216161' //Nomor Bot
+global.nomorbot = '254736958034' //Nomor Bot
 global.owner = [
-  ['254716216161', 'Langat.OH', true],
-  ['254716216161']
+  ['254736958034', '🐝KHALID-TECH🐝', true],
+  ['923470027813'], '🌿xIRATOS CONTRIBUTORx🌿'
 ] //Numeros
 
 global.mods = ['254736958034'] 
-global.prems = ['254716216161', '254716216161', '923470027813']
+global.prems = ['254736958034', '254716216161', '923470027813']
 global.APIs = { // API Prefix
   // name: 'https://website'
   xteam: 'https://api.xteam.xyz', 
@@ -28,9 +28,9 @@ global.APIKeys = { // APIKey Here
 global.packname = 'DyLux┃ᴮᴼᵀ' 
 global.author = 'KHALID-tech' 
 global.fgig = '▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff\n' 
-global.dygp = 'https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU'
-global.fgsc = 'https://github.com/FG98F/dylux-fg' 
-global.fgyt = 'https://youtube.com/fg98f'
+global.dygp = 'https://github.com/Khalid-niccur/'
+global.fgsc = 'https://github.com/Khalid-niccur/DYLUX-BOT' 
+global.fgyt = 'https://t.co/3frSXMbUH2'
 global.fgpyp = 'https://paypal.me/fg98f'
 global.fglog = 'https://i.imgur.com/Owmb93c.png' 
 
