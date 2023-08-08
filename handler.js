@@ -6,9 +6,9 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 
 /**
- * @type {import('@whiskeysockets/baileys')}
+ * @type {import('@adiwajshing/baileys')}
  */
-const { proto } = (await import('@whiskeysockets/baileys')).default
+const { proto } = (await import('@adiwajshing/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
     clearTimeout(this)
@@ -17,7 +17,7 @@ const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function (
 
 /**
  * Handle messages upsert
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
  */
 export async function handler(chatUpdate) {
     this.msgqueque = this.msgqueque || []
@@ -457,7 +457,7 @@ export async function handler(chatUpdate) {
 
 /**
  * Handle groups participants update
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
  */
 export async function participantsUpdate({ id, participants, action }) {
     if (opts['self'])
@@ -475,8 +475,8 @@ export async function participantsUpdate({ id, participants, action }) {
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
-                    let pp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
-                    let ppgp = 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg'
+                    let pp = 'https://i.imgur.com/whjlJSf.jpg'
+                    let ppgp = 'https://i.imgur.com/whjlJSf.jpg'
                     try {
                         pp = await this.profilePictureUrl(user, 'image')
                         ppgp = await this.profilePictureUrl(id, 'image')
@@ -513,7 +513,7 @@ export async function participantsUpdate({ id, participants, action }) {
         case 'promote':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user ahora es administrador')
         case 'demote':
-            let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg') 
+            let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.imgur.com/whjlJSf.jpg') 
             if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ya no es administrador')
             text = text.replace('@user', '@' + participants[0].split('@')[0])
@@ -526,7 +526,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
 /**
  * Handle groups update
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
 export async function groupsUpdate(groupsUpdate) {
     if (opts['self'])
@@ -537,7 +537,7 @@ export async function groupsUpdate(groupsUpdate) {
         let chats = global.db.data.chats[id], text = ''
         if (!chats?.detect) continue
         if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'Descripción cambiada a \n@desc').replace('@desc', groupUpdate.desc)
-        if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'El nombre del grupo cambió a \n@group').replace('@group', groupUpdate.subject)
+        if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'El nombre del grupo cambió a \n@group').replace('@subject', groupUpdate.subject)
         if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'El icono del grupo cambió a').replace('@icon', groupUpdate.icon)
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'El enlace del grupo cambia a\n@revoke').replace('@revoke', groupUpdate.revoke)
         if (!text) continue
