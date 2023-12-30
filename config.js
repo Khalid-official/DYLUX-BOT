@@ -3,11 +3,11 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['254736958034', 'khalid-tech', true], 
+  ['233543988521', 'RICH_MOND', true], 
 ] //Numeros de owner 
 
-global.mods = ['254736958034'] 
-global.prems = ['254736958034', '254736958034', '573125484672']
+global.mods = ['233543988521'] 
+global.prems = ['233543988521']
 global.APIs = { // API Prefix
   // name: 'https://website'
   xteam: 'https://api.xteam.xyz', 
@@ -24,7 +24,7 @@ global.APIKeys = { // APIKey Here
 
 // Sticker WM
 global.packname = 'DyLux┃ᴮᴼᵀ' 
-global.author = 'KHALID-TECH' 
+global.author = 'RICH' 
 global.fgig = '▢ Sígueme en Instagram\nhttps://www.instagram.com/KHALID_NICCUR\n' 
 global.dygp = 'https://github.com/Khalid-niccur'
 global.fgsc = 'https://github.com/Khalid-niccur' 
