@@ -53,16 +53,14 @@ let infobt = `
 *≡ OWNER*
    KHALID-TECHNOLOGIES
 ▢Instagram :
-   •https://www.instagram.com/khalid_niccur/
+   •https://www.instagram.com/khalid.__official
 ▢ WhatsApp :
    • (write only if necessary)
 ▢ GitHub :
-   • https://github.com/Khalid-niccur/DYLUX-BOT
-▢ Telegram :
-   • https://t.me/dextrousmodsKENYA
+   • https://github.com/Khalid-official
  
   *≡ HELPERS* *CRISS*
-▢ Instagram : https://www.instagram.com/khalid_niccur
+▢ Instagram : https://www.instagram.com/khalid.__official
 ▢ WhatsApp : wa.me/254114098508
    khalid+TECHNOLOGY 
 ▢ WhatsApp : wa.me/254736958034
