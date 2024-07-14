@@ -2,10 +2,10 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url' 
 
-global.owner = [
+global.owner = [+263788588813
   ['254736958034', '𝗞𝗛𝗔𝗟𝗜𝗗 𝗢.𝗙.𝗖', true],
   ['254114098508']
-] //Numeros de owner 
++263788588813] //Numeros de owner 
 
 global.mods = [''] 
 global.prems = ['254736958034', '254114098508']
@@ -20,11 +20,11 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'dylux┃ᴮᴼᵀ' 
+global.packname = 'hallax┃ᴮᴼᵀ' 
 global.author = '@𝗸𝗵𝗮𝗹𝗶𝗱' 
 
 //--info FG
-global.botName = 'DYLUX'
+global.botName = 'halla'
 global.fgig = 'https://github.com/Khalid-official' 
 global.fgsc = 'https://github.com/Khalid-official/DYLUX-BOT' 
 global.fgyt = 'https://github.com/Khalid-official'
