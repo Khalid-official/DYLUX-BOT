@@ -4,16 +4,16 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-  if (!text) throw `[❗𝐈𝐍𝐅𝐎❗] 𝗘𝗻𝘁𝗲𝗿 𝘁𝗵𝗲 𝗻𝗻𝗮𝗺𝗲 𝗼𝗿 𝘁𝗵𝗲 𝘁𝗶𝘁𝗹𝗲 𝗼𝗳 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝘂𝘀𝗶𝗻𝗴 𝘁𝗵𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗶𝗻𝗴 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 *\n\n*—◉ 𝗘𝘅𝗮𝗺𝗽𝗹𝗲:*\n*${usedPrefix + command} Good Feeling - Flo Rida* `;
+  if (!text) throw `https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] 𝗘𝗻𝘁𝗲𝗿 𝘁𝗵𝗲 𝗻𝗮𝗺𝗲 𝗼𝗿 𝘁𝗵𝗲 𝘁𝗶𝘁𝗹𝗲 𝗼𝗳 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝘂𝘀𝗶𝗻𝗴 𝘁𝗵𝗲 𝗳𝗼𝗹𝗹𝗼𝘄𝗶𝗻𝗴 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 *\n\n*—◉ 𝗘𝘅𝗮𝗺𝗽𝗹𝗲:*\n*${usedPrefix + command} Good Feeling - Flo Rida* `;
   try {
     const yt_play = await search(args.join(' '));
     let additionalText = '';
-    if (command === 'play' || command == 'playdoc') {
+   if (command === 'play') {
       additionalText = 'audio 🔊';
-    } else if (command === 'play4' || command == 'playdoc2') {
+    } else if (command === 'play2') {
       additionalText = 'video 🎥';
     }
-    const texto1 = `*◉—⌈🎶𝗗𝗬𝗟𝗨𝗫 𝗠𝗨𝗦𝗜𝗖🎶⌋—◉*\n❏ 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
+    const texto1 = `*◉—⌈🎶🐝 𝐃𝐘𝐋𝐔𝐗 𝐁𝐎𝐓🎶⌋—◉*\n❏ 📌 *𝗧𝗶𝘁𝗹𝗲:* ${yt_play[0].title}
 ❏ 📆 *𝗽𝘂𝗯𝗹𝗶𝘀𝗵𝗲𝗱:* ${yt_play[0].ago}
 ❏ ⌚ *Dur𝗮𝘁𝗶𝗼𝗻:* ${secondString(yt_play[0].duration.seconds)}
 ❏ 👀 *Vi𝗲𝘄𝘀:* ${`${MilesNumber(yt_play[0].views)}`}
@@ -24,7 +24,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 ❏ 🔗 *L𝗶𝗻𝗸:* ${yt_play[0].url}\n
 ❏ *_𝘀𝗲𝗻𝗱𝗶𝗻𝗴 ${additionalText}, 𝗽𝗹𝗲𝗮𝘀𝗲 𝘄𝗮𝗶𝘁 𝗮 𝗺𝗼𝗺𝗲𝗻𝘁．．．_*`.trim();
     conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
-    if (command == 'play' || command == 'playdoc') {
+     if (command == 'play') {
       try {
         const q = '128kbps';
         const v = yt_play[0].url;
@@ -33,12 +33,14 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
         const ttl = await yt.title;
         const size = await yt.audio[q].fileSizeH;
         await conn.sendMessage(m.chat, {document: {url: dl_url}, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3`}, {quoted: m});
+        await conn.sendMessage(m.chat, {audio: {url: dl_url}, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3`}, {quoted: m});
       } catch {
         try {
           const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
           const lolh = await lolhuman.json();
           const n = lolh.result.title || 'error';
           await conn.sendMessage(m.chat, {document: {url: lolh.result.link}, fileName: `${n}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+          await conn.sendMessage(m.chat, {audio: {url: lolh.result.link}, fileName: `${n}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
         } catch {
           try {
             const searchh = await yts(yt_play[0].url);
@@ -46,13 +48,14 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
             const infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId);
             const ress = await ytdl.chooseFormat(infoo.formats, {filter: 'audioonly'});
             conn.sendMessage(m.chat, {document: {url: ress.url}, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
+            conn.sendMessage(m.chat, {audio: {url: ress.url}, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
           } catch {
-            await conn.reply(m.chat, 'https://github.com/Khalid-official *[❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝗮𝘂𝗱𝗶𝗼 𝗳𝗼𝘂𝗻𝗱*', m);
+            await conn.reply(m.chat, 'https://github.com/Khalid-official *[❗𝐈𝐍𝐅𝐎❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝗮𝘂𝗱𝗶𝗼 𝗳𝗼𝘂𝗻𝗱*', m);
           }
         }
       }
     }
-    if (command == 'video' || command == 'playdoc2') {
+    if (command == 'play' || command == 'playdoc2') {
       try {
         const qu = '360';
         const q = qu + 'p';
@@ -61,7 +64,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
         const dl_url = await yt.video[q].download();
         const ttl = await yt.title;
         const size = await yt.video[q].fileSizeH;
-        await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
+        await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
       } catch {
         try {
           const mediaa = await ytMp4(yt_play[0].url);
@@ -74,9 +77,9 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
             const n2 = lolh.result.link;
             const n3 = lolh.result.size;
             const n4 = lolh.result.thumbnail;
-            await conn.sendMessage(m.chat, {document: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝗧𝗜𝗧𝗟𝗘: ${n}\n▢ 𝗩𝗜𝗗𝗘𝗢 𝗦𝗣𝗘𝗖𝗦: ${n3}`, thumbnail: await fetch(n4)}, {quoted: m});
+            await await conn.sendMessage(m.chat, {document: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 📌𝗧𝗜𝗧𝗟𝗘: ${ttl}\n▢ 📥𝗩𝗜𝗗𝗘𝗢 𝗦𝗜𝗭𝗘: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
           } catch {
-            await conn.reply(m.chat, '*[❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝘃𝗶𝗱𝗲𝗼 𝗳𝗼𝘂𝗻𝗱*', m);
+            await conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝘃𝗶𝗱𝗲𝗼 𝗳𝗼𝘂𝗻𝗱*', m);
           }
         }
       }
@@ -85,9 +88,9 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     throw '*[❗𝐈𝐍𝐅𝐎❗] 𝗘𝗿𝗿𝗼𝗿 𝗻𝗼 𝗽𝗼𝘀𝘀𝗶𝗯𝗹𝗲 𝘃𝗶𝗱𝗲𝗼  𝗳𝗼𝘂𝗻𝗱*';
   }
 };
-handler.help = ['play', 'video'].map((v) => v + ' < busqueda >');
+handler.help = ['play', 'play2'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
-handler.command = /^(play|playdoc2|playvid|play4)$/i;
+handler.command = /^(play|play2)$/i;
 export default handler;
 
 async function search(query, options = {}) {
@@ -109,10 +112,10 @@ function secondString(seconds) {
   const h = Math.floor((seconds % (3600 * 24)) / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
-  const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
-  const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
-  const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
-  const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+  const dDisplay = d > 0 ? d + (d == 1 ? ' day, ' : ' days, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' hour, ' : ' hours, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' minute, ' : ' minutes, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : '';
   return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
